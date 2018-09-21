@@ -19,6 +19,19 @@ const router = function(collection) {
       .then((info) => res.json(info))
   });
 
+  r.post('/', (req, res) => { // CREATE
+    const newQuestion = req.body;
+    collection
+      .insertOne(newQuestion)
+      .then(() => {
+        // collection
+        //   .find()
+        //   .toArray()
+        //   .then((info) => res.json(info))
+        console.log('New question added.')
+      })
+  });
+
   return r;
 }
 
