@@ -1,0 +1,16 @@
+.answer {
+  border-bottom: 5px solid grey;
+  border-right: 5px solid grey;
+  display: inline-block;
+  margin: 2em;
+  padding: 1em;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.answer:hover {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 4px solid grey;
+  border-left: 4px solid grey;
+}
