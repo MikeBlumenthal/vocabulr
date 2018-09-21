@@ -1,7 +1,7 @@
 use vocabulary;
 db.dropDatabase();
 
-db.question.insertMany(
+db.questions.insertMany(
   [
     {
       word:'Apfel',

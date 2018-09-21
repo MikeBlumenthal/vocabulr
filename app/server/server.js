@@ -11,6 +11,17 @@ server.use(express.static(publicPath));
 server.use(parser.json());
 
 MongoClient.connect('mongodb://localhost:27017')
-.then( (client) => {
-  const db
-})
+  .then( (client) => {
+    const db = client.db('vocabulary');
+    const collection = db.collection('questions');
+    const qRouter = router(collection);
+    server.use('/api/questions', qRouter);
+  })
+  .catch((error) => {
+    console.error('Failed to connect');
+    console.error(error)
+  });
+
+server.listen(3000, () => {
+  console.log('Listening on port 3000.');
+});
