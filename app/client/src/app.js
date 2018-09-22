@@ -1,6 +1,7 @@
 const Question = require('./models/question.js');
 const QuestionView = require('./views/question_view.js');
 const ResponseView = require('./views/response_view.js');
+const HintView = require('./views/hint_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const questionViewTarget = document.querySelector('#question-view');
@@ -11,12 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const responseView = new ResponseView(responseViewTarget);
   responseView.bindEvents();
 
+  const hintView = new HintView();
+  hintView.bindEvents();
+  
   const questions = new Question();
   questions.getQuestions();
-
-  const hintBtn = document.querySelector('#hint-btn'); // complexed enough to PubSub?
-  hintBtn.addEventListener('click', () => { // need to randomize?
-    const incorrectAnswer = document.querySelector('.answer[correct="false"]');
-    incorrectAnswer.style.visibility = 'hidden';
-  });
 })
