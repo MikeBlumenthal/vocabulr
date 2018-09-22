@@ -13,4 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const questions = new Question();
   questions.getQuestions();
+
+  const hintBtn = document.querySelector('#hint-btn'); // complexed enough to PubSub?
+  hintBtn.addEventListener('click', () => { // need to randomize?
+    const incorrectAnswer = document.querySelector('.answer[correct="false"]');
+    incorrectAnswer.style.visibility = 'hidden';
+  });
 })
