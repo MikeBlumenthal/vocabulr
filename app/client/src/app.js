@@ -2,7 +2,6 @@ const Question = require('./models/question.js');
 const QuestionView = require('./views/question_view.js');
 const ResponseView = require('./views/response_view.js');
 const HintView = require('./views/hint_view.js');
-const Base64 = require('./helpers/base64.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const questionViewTarget = document.querySelector('#question-view');
@@ -18,7 +17,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const questions = new Question();
   questions.getQuestions();
-
-  const b = new Base64();
-  console.log(b.encode('working'));
 });

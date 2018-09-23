@@ -1,3 +1,5 @@
+const Base64 = require('../helpers/base64.js');
+
 const AnswerView = function(element){
   this.element = element;
 };
@@ -5,11 +7,12 @@ const AnswerView = function(element){
 AnswerView.prototype.render = function (answerObj) {
   const answer = answerObj.answer;
   const img = answerObj.image;
-  const correct = answerObj.correct;
+  const correct = answerObj.correct.toString();
 
+  const base64 = new Base64()
   const div = document.createElement('div');
   div.classList.add('answer');
-  div.setAttribute('correct', correct);
+  div.setAttribute('correct', base64.encode(correct));
 
   const answerEl = document.createElement('h4');
   answerEl.textContent = answer;

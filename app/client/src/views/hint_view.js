@@ -1,3 +1,4 @@
+const Base64 = require('../helpers/base64.js');
 const HintView = function(){
 
 };
@@ -10,7 +11,7 @@ HintView.prototype.bindEvents = function () {
 };
 
 HintView.prototype.giveHint = function () {
-  const incorrectAnswer = document.querySelector('.answer[correct="false"]');
+  const incorrectAnswer = document.querySelector(`.answer[correct="dHJ1ZQ=="]`);
   incorrectAnswer.style.visibility = 'hidden';
 };
 
