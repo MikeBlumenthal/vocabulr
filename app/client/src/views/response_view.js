@@ -10,9 +10,7 @@ ResponseView.prototype.bindEvents = function () {
     this.createAnswers(event.detail);
   });
   this.element.addEventListener('click', (event) => {
-    if( event.target.value !== undefined ){
-      console.log(event.target.value);
-    };
+    PubSub.publish('ResponseView:answer-selected', event.target);
   })
 };
 

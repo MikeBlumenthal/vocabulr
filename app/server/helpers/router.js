@@ -12,7 +12,7 @@ const router = function(collection) {
   });
 
   r.get('/:id', (req, res) => { // SHOW
-    console.log(req.params.id);
+    const id = req.params.id;
     collection
       .find({ _id: ObjectID(id) })
       .toArray()

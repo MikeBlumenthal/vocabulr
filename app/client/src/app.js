@@ -2,6 +2,7 @@ const Question = require('./models/question.js');
 const QuestionView = require('./views/question_view.js');
 const ResponseView = require('./views/response_view.js');
 const HintView = require('./views/hint_view.js');
+const Answer = require('./models/answer.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const questionViewTarget = document.querySelector('#question-view');
@@ -14,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const hintView = new HintView();
   hintView.bindEvents();
+
+  const answer = new Answer();
+  answer.bindEvents();
 
   const questions = new Question();
   questions.getQuestions();
