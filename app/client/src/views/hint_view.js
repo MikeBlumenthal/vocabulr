@@ -11,7 +11,7 @@ HintView.prototype.bindEvents = function () {
 };
 
 HintView.prototype.giveHint = function () {
-  const incorrectAnswer = document.querySelector(`.answer[correct="dHJ1ZQ=="]`);
+  const incorrectAnswer = document.querySelector(`.answer[correct="ZmFsc2U="]`);
   incorrectAnswer.style.visibility = 'hidden';
 };
 
