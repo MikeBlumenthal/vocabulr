@@ -9,6 +9,7 @@ AnswerView.prototype.render = function (answerObj) {
 
   const div = document.createElement('div');
   div.classList.add('answer');
+  div.setAttribute('value', answer);
   div.id = id;
   div.value = answer;
 
