@@ -7,12 +7,20 @@ const ResponseView = function(element){
 
 ResponseView.prototype.bindEvents = function () {
   PubSub.subscribe('Question:all-data-ready', (event) => {
-    this.createAnswers(event.detail.answers);
+    this.createAnswers(event.detail);
   });
+  this.element.addEventListener('click', (event) => {
+    if( event.target.value !== undefined ){
+      console.log(event.target.value);
+    };
+  })
 };
 
 ResponseView.prototype.createAnswers = function (answers) {
-  answers.forEach((answer) => {
+  const data = (answers.answers);
+  const id = (answers._id);
+  data.forEach((answer) => {
+    answer.id = id;
     const answerView = new AnswerView(this.element);
     answerView.render(answer);
   });
