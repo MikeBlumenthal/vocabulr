@@ -9,16 +9,8 @@ QuestionView.prototype.bindEvents = function () {
     this.element.innerHTML = '';
     const questionWord = event.detail.word;
     this.createQuestion(questionWord);
-
-    const questionWordEl = document.querySelector('#question-word');
-    questionWordEl.addEventListener('click', (event) => {
-      const audioPath = 'audio/'
-      const fileName = event.target.innerText.toLowerCase().replace(' ', '_') + '.mp3'
-
-      var audio = new Audio(audioPath + fileName);
-      audio.play();
-    });
   });
+
   PubSub.subscribe('Question:next-one-ready', (event) => {
     this.element.innerHTML = '';
     const questionWord = event.detail.word;
@@ -38,6 +30,15 @@ QuestionView.prototype.createQuestion = function (word) {
   questionWord.textContent = word;
   questionWord.id = 'question-word';
   this.element.appendChild(questionWord);
+
+  const questionWordEl = document.querySelector('#question-word');
+  questionWordEl.addEventListener('click', (event) => {
+    const audioPath = 'audio/'
+    const fileName = event.target.innerText.toLowerCase().replace(' ', '_') + '.mp3'
+
+    var audio = new Audio(audioPath + fileName);
+    audio.play();
+  });
 };
 
 module.exports = QuestionView;
