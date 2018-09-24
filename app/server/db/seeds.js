@@ -10,17 +10,17 @@ db.questions.insertMany([
         {
           answer: 'apple',
           correct: true,
-          image: 'https://cdn.pixabay.com/photo/2013/07/13/11/34/apple-158419_960_720.png'
+          image: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Red_apple_on_white_background.jpg'
         },
         {
           answer: 'banana',
           correct: false,
-          image: 'https://cdn.pixabay.com/photo/2012/04/26/18/41/banana-42793_960_720.png'
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Banana_%28white_background%29.jpg/320px-Banana_%28white_background%29.jpg'
         },
         {
           answer: 'pear',
           correct: false,
-          image: 'https://cdn.pixabay.com/photo/2017/10/14/15/51/pear-2850843_960_720.png'
+          image: 'http://res.publicdomainfiles.com/pdf_view/1/13488708014929.png'
         }
       ]
     },
@@ -32,17 +32,17 @@ db.questions.insertMany([
         {
           answer: 'apple',
           correct: false,
-          image: 'https://cdn.pixabay.com/photo/2013/07/13/11/34/apple-158419_960_720.png'
+          image: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Red_apple_on_white_background.jpg'
         },
         {
           answer: 'banana',
           correct: true,
-          image: 'https://cdn.pixabay.com/photo/2012/04/26/18/41/banana-42793_960_720.png'
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Banana_%28white_background%29.jpg/320px-Banana_%28white_background%29.jpg'
         },
         {
           answer: 'pear',
           correct: false,
-          image: 'https://cdn.pixabay.com/photo/2017/10/14/15/51/pear-2850843_960_720.png'
+          image: 'http://res.publicdomainfiles.com/pdf_view/1/13488708014929.png'
         }
       ]
     },
@@ -54,17 +54,17 @@ db.questions.insertMany([
         {
           answer: 'apple',
           correct: false,
-          image: 'https://cdn.pixabay.com/photo/2013/07/13/11/34/apple-158419_960_720.png'
+          image: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Red_apple_on_white_background.jpg'
         },
         {
           answer: 'banana',
           correct: false,
-          image: 'https://cdn.pixabay.com/photo/2012/04/26/18/41/banana-42793_960_720.png'
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Banana_%28white_background%29.jpg/320px-Banana_%28white_background%29.jpg'
         },
         {
           answer: 'pear',
           correct: true,
-          image: 'https://cdn.pixabay.com/photo/2017/10/14/15/51/pear-2850843_960_720.png'
+          image: 'http://res.publicdomainfiles.com/pdf_view/1/13488708014929.png'
         }
       ]
     },
@@ -81,12 +81,12 @@ db.questions.insertMany([
         {
           answer: 'banana',
           correct: false,
-          image: 'https://cdn.pixabay.com/photo/2012/04/26/18/41/banana-42793_960_720.png'
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Banana_%28white_background%29.jpg/320px-Banana_%28white_background%29.jpg'
         },
         {
           answer: 'pear',
           correct: false,
-          image: 'https://cdn.pixabay.com/photo/2017/10/14/15/51/pear-2850843_960_720.png'
+          image: 'http://res.publicdomainfiles.com/pdf_view/1/13488708014929.png'
         }
       ]
     },
@@ -147,7 +147,7 @@ db.questions.insertMany([
         {
           answer: 'goat',
           correct: false,
-          image: 'https://pixnio.com/free-images/2018/06/14/2018-06-14-22-40-12-1200x800.jpg'
+          image: 'https://c.pxhere.com/photos/4f/f2/bighorn_animal_nature_wild_wildlife_mammal_horn_portrait-666665.jpg!d'
         },
         {
           answer: 'sheep',
@@ -174,7 +174,7 @@ db.questions.insertMany([
         {
           answer: 'goat',
           correct: true,
-          image: 'https://pixnio.com/free-images/2018/06/14/2018-06-14-22-40-12-1200x800.jpg'
+          image: 'https://c.pxhere.com/photos/4f/f2/bighorn_animal_nature_wild_wildlife_mammal_horn_portrait-666665.jpg!d'
         }
       ]
     },
@@ -218,7 +218,7 @@ db.questions.insertMany([
         {
           answer: 'goat',
           correct: false,
-          image: 'https://pixnio.com/free-images/2018/06/14/2018-06-14-22-40-12-1200x800.jpg'
+          image: 'https://c.pxhere.com/photos/4f/f2/bighorn_animal_nature_wild_wildlife_mammal_horn_portrait-666665.jpg!d'
         }
       ]
     },
@@ -262,7 +262,7 @@ db.questions.insertMany([
         {
           answer: 'goat',
           correct: false,
-          image: 'https://pixnio.com/free-images/2018/06/14/2018-06-14-22-40-12-1200x800.jpg'
+          image: 'https://c.pxhere.com/photos/4f/f2/bighorn_animal_nature_wild_wildlife_mammal_horn_portrait-666665.jpg!d'
         }
       ]
     }
