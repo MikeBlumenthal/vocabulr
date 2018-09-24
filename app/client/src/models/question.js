@@ -10,12 +10,7 @@ const Question = function() {
 Question.prototype.getQuestions = function () {
   this.request.get()
   .then((response) => {
-    // const shuffledQuestions = Randomiser.randomise(response);
-    // this.data = shuffledQuestions;
-    this.data = response;
-    console.log(this.data);
-    const firstQuestion = this.getOneQuestion()
-    PubSub.publish('Question:all-data-ready', firstQuestion )
+    PubSub.publish('Question:all-data', response)
   })
 };
 
@@ -25,6 +20,10 @@ Question.prototype.bindEvents = function () {
     PubSub.publish('Question:next-one-ready', nextQuestion);
   })
 }
+
+Question.prototype.categories = function () {
+
+};
 
 Question.prototype.getOneQuestion = function () {
   return this.data.pop();
