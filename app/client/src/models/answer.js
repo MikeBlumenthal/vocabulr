@@ -20,7 +20,14 @@ Answer.prototype.check = function (answer) {
     const correctAnswer = response[0].answers.find((answer) => {
       return answer.correct === true;
     });
-    console.log(correctAnswer);
+    if (userGuess === correctAnswer.answer) {
+      console.log('Correct!');
+    } else {
+      console.log('Incorrect :(');
+    }
+    // console.log(userGuess);
+    // console.log(correctAnswer.answer);
+    // // if userGuess ===
   })
 };
 
