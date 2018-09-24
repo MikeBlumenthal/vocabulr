@@ -8,9 +8,14 @@
   text-transform: capitalize;
 }
 
-.answer:hover {
+.answer:active {
   border-bottom: 1px solid black;
   border-right: 1px solid black;
   border-top: 4px solid grey;
   border-left: 4px solid grey;
+}
+
+img {
+  width: 100px;
+  height: 100px;
 }
