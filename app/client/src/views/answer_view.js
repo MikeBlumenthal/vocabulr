@@ -1,5 +1,3 @@
-
-
 const AnswerView = function(element){
   this.element = element;
 };

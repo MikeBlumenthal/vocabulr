@@ -1,4 +1,3 @@
-const Base64 = require('../helpers/base64.js');
 const HintView = function(){
 
 };
