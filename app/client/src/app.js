@@ -29,6 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
   answer.bindEvents();
 
   const questions = new Question();
-  questions.getQuestions();
+  questions.getData();
   questions.bindEvents();
 });

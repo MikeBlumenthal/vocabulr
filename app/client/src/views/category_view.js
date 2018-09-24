@@ -23,9 +23,22 @@ CategoryView.prototype.bindEvents = function () {
 };
 
 CategoryView.prototype.createCategoryOptions = function () {
+  const instructions = document.createElement('h2');
+  instructions.textContent = 'Pick a category!';
+  this.element.appendChild(instructions);
   this.categories.forEach( (category) => {
     this.makeButton(category);
   })
 }
+
+CategoryView.prototype.makeButton = function (category) {
+  const catButton = document.createElement('button');
+  catButton.textContent = `${category.toUpperCase()}`;
+  catButton.value = category;
+  this.element.appendChild(catButton);
+  catButton.addEventListener('click', (event) => {
+    PubSub.publish('CategoryView:category-selected', event.target.value )
+  })
+};
 
 module.exports = CategoryView;

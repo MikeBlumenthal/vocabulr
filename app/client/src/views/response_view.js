@@ -7,7 +7,7 @@ const ResponseView = function(element){
 }
 
 ResponseView.prototype.bindEvents = function () {
-  PubSub.subscribe('Question:all-data-ready', (event) => {
+  PubSub.subscribe('Question:first-question-in-category', (event) => {
     this.createAnswers(event.detail);
   });
   PubSub.subscribe('Question:next-one-ready', (event) => {

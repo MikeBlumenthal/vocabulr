@@ -5,7 +5,7 @@ const QuestionView = function(element){
 };
 
 QuestionView.prototype.bindEvents = function () {
-  PubSub.subscribe('Question:all-data-ready', (event) => {
+  PubSub.subscribe('Question:first-question-in-category', (event) => {
     this.element.innerHTML = '';
     const questionWord = event.detail.word;
     this.createQuestion(questionWord);
