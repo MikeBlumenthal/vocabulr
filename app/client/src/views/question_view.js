@@ -16,13 +16,8 @@ QuestionView.prototype.bindEvents = function () {
 
       var audio = new Audio(audioPath + fileName);
       audio.play();
-
-      console.log(fileName);
-      console.log(event.target.innerText);
     });
   });
-
-
 };
 
 QuestionView.prototype.createQuestion = function (word) {

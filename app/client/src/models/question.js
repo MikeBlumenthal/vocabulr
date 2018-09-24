@@ -12,7 +12,6 @@ Question.prototype.getQuestions = function () {
     .then((response) => {
       const shuffledQuestions = Randomiser.randomise(response);
       this.data = shuffledQuestions;
-      console.log(this.data);
       const firstQuestion = this.getOneQuestion()
       PubSub.publish('Question:all-data-ready', firstQuestion )
     })
