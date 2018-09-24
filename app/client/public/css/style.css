@@ -15,7 +15,15 @@
   border-left: 4px solid grey;
 }
 
+.answer:hover {
+  cursor: pointer;
+}
+
 img {
   width: 100px;
   height: 100px;
+}
+
+#question-word:hover {
+  cursor: url('../images/speaker.png'), auto;
 }

@@ -24,6 +24,7 @@ Question.prototype.bindEvents = function () {
   PubSub.subscribe('CategoryView:category-selected', (event) => {
     const category = event.detail;
     this.questions = this.data.filter(question => question.category === category);
+    Randomiser.randomise(this.questions);
     const firstQuestion = this.getOneQuestion();
     PubSub.publish('Question:first-question-in-category', firstQuestion);
   })

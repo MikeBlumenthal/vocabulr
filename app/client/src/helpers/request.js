@@ -7,7 +7,7 @@ Request.prototype.get = function () {
     .then((response) => response.json())
 };
 
-Request.prototype.getOne =function (id) {
+Request.prototype.getOne = function (id) {
   return fetch(`${this.url}/${id}`)
   .then((response) => response.json())
 }
