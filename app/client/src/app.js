@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const responseView = new ResponseView(responseViewTarget);
   responseView.bindEvents();
 
-  const resultView = new ResultView();
+  const resultView = new ResultView(responseViewTarget);
   resultView.bindEvents();
 
   const hintView = new HintView();
