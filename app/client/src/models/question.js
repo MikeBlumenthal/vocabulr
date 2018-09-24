@@ -9,14 +9,22 @@ const Question = function() {
 
 Question.prototype.getQuestions = function () {
   this.request.get()
-    .then((response) => {
-      const shuffledQuestions = Randomiser.randomise(response);
-      this.data = shuffledQuestions;
-      console.log(this.data);
-      const firstQuestion = this.getOneQuestion()
-      PubSub.publish('Question:all-data-ready', firstQuestion )
-    })
+  .then((response) => {
+    // const shuffledQuestions = Randomiser.randomise(response);
+    // this.data = shuffledQuestions;
+    this.data = response;
+    console.log(this.data);
+    const firstQuestion = this.getOneQuestion()
+    PubSub.publish('Question:all-data-ready', firstQuestion )
+  })
 };
+
+Question.prototype.bindEvents = function () {
+  PubSub.subscribe('ResultView:next-question', (event) => {
+    const nextQuestion = this.getOneQuestion();
+    PubSub.publish('Question:next-one-ready', nextQuestion);
+  })
+}
 
 Question.prototype.getOneQuestion = function () {
   return this.data.pop();

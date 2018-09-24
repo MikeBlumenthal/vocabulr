@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const responseView = new ResponseView(responseViewTarget);
   responseView.bindEvents();
 
-  const resultView = new ResultView(responseViewTarget);
+  const resultViewTarget = document.querySelector('#result-view');
+  const resultView = new ResultView(resultViewTarget);
   resultView.bindEvents();
 
   const hintView = new HintView();
@@ -25,4 +26,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const questions = new Question();
   questions.getQuestions();
+  questions.bindEvents();
 });

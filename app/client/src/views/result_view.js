@@ -16,6 +16,19 @@ ResultView.prototype.bindEvents = function () {
     };
 
     this.element.appendChild(header);
+
+    const hintButton = document.querySelector('#hint-btn');
+    hintButton.style.visibility = 'hidden';
+
+    const button = document.createElement('button');
+    button.id = 'next-question';
+    button.textContent = "Next question!";
+    this.element.appendChild(button);
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      PubSub.publish('ResultView:next-question', 1);
+      this.element.innerHTML = '';
+    })
   });
 };
 
