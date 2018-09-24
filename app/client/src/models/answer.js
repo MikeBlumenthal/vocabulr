@@ -14,9 +14,13 @@ Answer.prototype.bindEvents = function () {
 };
 
 Answer.prototype.check = function (answer) {
+  const userGuess = answer.value;
   const request = new Request('http://localhost:3000/api/questions');
   request.getOne(answer.id).then((response) => {
-    console.log(response);
+    const correctAnswer = response[0].answers.find((answer) => {
+      return answer.correct === true;
+    });
+    console.log(correctAnswer);
   })
 };
 
