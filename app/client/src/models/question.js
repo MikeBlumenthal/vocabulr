@@ -1,5 +1,6 @@
 const Request = require('../helpers/request.js');
 const PubSub = require('../helpers/pub_sub.js');
+const Randomiser = require('../helpers/randomiser.js')
 
 const Question = function() {
   this.data = null;
@@ -9,9 +10,11 @@ const Question = function() {
 Question.prototype.getQuestions = function () {
   this.request.get()
     .then((response) => {
-      this.data = response;
+      const shuffledQuestions = Randomiser.randomise(response);
+      this.data = shuffledQuestions;
+      console.log(this.data);
       const firstQuestion = this.getOneQuestion()
-      PubSub.publish('Question:all-data-ready', firstQuestion)
+      PubSub.publish('Question:all-data-ready', firstQuestion )
     })
 };
 
