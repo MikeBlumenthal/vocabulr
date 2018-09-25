@@ -60,12 +60,15 @@ ResultView.prototype.bindEvents = function () {
           labels: ["Correct", "Incorrect"],
           datasets: [{
             data: arrayRightWrong,
-            backgroundColor: ['green', 'red'],
-            borderColor: ['darkgreen', 'crimson'],
+            backgroundColor: ['#65ab00', '#f24f4f'],
+            // borderColor: ['darkgreen', 'crimson'],
             borderWidth: 1
           }],
         },
-        options: {}
+        options: {
+          responsive: true,
+          maintainAspectRatio: true
+        }
       })
     }
 

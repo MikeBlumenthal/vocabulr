@@ -9,6 +9,14 @@ body, html {
   color: #3c3c3c;
 }
 
+#progress-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:70% !important;
+  height:70% !important;
+}
+
 #progress-bar {
   display: flex;
   align-items: center;
