@@ -1,26 +1,8 @@
-/*
-
-https://coolors.co/5bc0eb-fde74c-9bc53d-e55934-fa7921
-
-Blue - #5BC0EB
-Yellow - #FDE74C
-Green - #9BC53D
-Red - #9BC53D
-Orange - #FA7921
-BG Grey - #444140
-
-Title Font:
-font-family: 'Amatic SC', cursive;
-
-Sub Font:
-font-family: 'Josefin Sans', sans-serif;
-
-*/
-
 body, html {
   text-align: center;
   margin: 0;
   width: 100%;
+  height: 100%;
   background-color: #f7f7f7;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1.5em;
@@ -30,27 +12,33 @@ body, html {
 #progress-bar {
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .answer {
-  border-bottom: 5px solid grey;
-  border-right: 5px solid grey;
+  border: 1px solid grey;
+  border-radius: 10px;
   display: inline-block;
   margin: 2em;
   padding: 1em;
   text-align: center;
+  vertical-align: middle;
   text-transform: capitalize;
+  width: 6.5em;
+  height: 6.5em;
 }
 
 .answer:active {
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
-  border-top: 4px solid grey;
-  border-left: 4px solid grey;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+  border-top: 1px solid grey;
+  border-left: 1px solid grey;
 }
 
 .answer:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform .2s;
   cursor: pointer;
 }
 
@@ -59,30 +47,33 @@ img {
   height: 100px;
 }
 
-#body-view{
+#body-view {
   /* background-color: pink; */
 }
 
-#head-view{
+#head-view {
   font-family: 'Josefin Sans', sans-serif;
   /* background-color: rebeccapurple; */
   margin: 0;
 }
 
-#question-title{
+#question-title {
   margin-bottom: -0.1em;
 }
 
-#question-word{
+#question-word {
   font-family: 'Amatic SC', cursive;
   color: #FA7921;
-  width: 15%;
+  width: 35%;
   display: block;
   margin: 0 auto;
   font-size: 2.5em;
+  margin-bottom: -0.5em;
 }
 
 #question-word:hover {
+  transform: scale(1.5);
+  transition: transform .2s;
   cursor: url('../images/speaker.png'), auto;
 }
 
@@ -121,15 +112,13 @@ button:hover {
 }
 
 table {
-  border: 1px solid black;
-  width: 30%;
+  border: none;
+  border-collapse:collapse;
+  width: 100%;
   background-color: black;
 }
 
 th {
-  background-color: white;
-  border: 1px solid black;
-  width: 1fr;
-  height: 1em;
-  padding: .25em;
+  background-color: #f7f7f7;
+  height: 3px;
 }

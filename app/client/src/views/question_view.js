@@ -24,14 +24,14 @@ QuestionView.prototype.createQuestion = function (word) {
   this.element.appendChild(questionTitle);
 
   const questionWord = document.createElement('h2');
-  questionWord.textContent = word;
+  questionWord.textContent = word + '?';
   questionWord.id = 'question-word';
   this.element.appendChild(questionWord);
 
   const questionWordEl = document.querySelector('#question-word');
   questionWordEl.addEventListener('click', (event) => {
     const audioPath = 'audio/'
-    const fileName = event.target.innerText.toLowerCase().replace(' ', '_') + '.mp3'
+    const fileName = event.target.innerText.toLowerCase().replace(' ', '_').replace('?', '') + '.mp3'
 
     var audio = new Audio(audioPath + fileName);
     audio.play();
