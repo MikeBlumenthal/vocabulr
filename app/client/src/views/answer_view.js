@@ -1,4 +1,3 @@
-const PubSub = require('../helpers/pub_sub.js');
 
 const AnswerView = function(element){
   this.element = element;
