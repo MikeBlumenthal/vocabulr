@@ -10,6 +10,11 @@ body, html {
   justify-content: center
 }
 
+#progress-chart {
+  width: 500px;
+  height: 500px;
+}
+
 .answer {
   border-bottom: 5px solid grey;
   border-right: 5px solid grey;
@@ -37,12 +42,10 @@ img {
 }
 
 #body-view{
-  height: 20em;
   background-color: pink;
 }
 
 #head-view{
-  height: 5em;
   background-color: rebeccapurple;
   margin: 0;
 }
@@ -74,5 +77,4 @@ th {
   width: 1fr;
   height: 1em;
   padding: .25em;
-
 }

@@ -44,8 +44,14 @@ ResultView.prototype.bindEvents = function () {
         PubSub.publish('ResultView:next-question', 1);
       })
     } else {
-      this.element.innerHTML = '<canvas id="myChart" width="100" height="100"></canvas>';
-      const ctx = document.getElementById("myChart");
+
+      const canvas = document.createElement('canvas');
+      canvas.id = 'progress-chart';
+      // canvas.style.height = '100px';
+      // canvas.style.width = '100px';
+      this.element.appendChild(canvas);
+
+      const ctx = document.getElementById("progress-chart");
       const arrayRightWrong = [];
       arrayRightWrong.push(this.counter.filter(x => x === 1).length);
       arrayRightWrong.push(this.counter.filter(x => x === 0).length);
