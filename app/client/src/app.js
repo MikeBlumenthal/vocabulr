@@ -22,9 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultView = new ResultView(bodyViewTarget);
   resultView.bindEvents();
 
-  const hintView = new HintView();
-  hintView.bindEvents();
-
   const answer = new Answer(bodyViewTarget);
   answer.bindEvents();
 
