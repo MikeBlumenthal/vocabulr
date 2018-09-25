@@ -1,3 +1,4 @@
+const Chart = require('chart.js');
 const PubSub = require('../helpers/pub_sub.js');
 const Request = require('../helpers/request.js');
 
@@ -43,17 +44,36 @@ ResultView.prototype.bindEvents = function () {
         PubSub.publish('ResultView:next-question', 1);
       })
     } else {
-      const wellDone = document.createElement('h3');
-      const score = this.counter.filter(score => score > 0).length;
-      wellDone.textContent = `Congratulations! You finished the round with a score of ${score} out of 6!`;
-      this.element.appendChild(wellDone);
-      const requestH = new Request('http://localhost:3000/api/history');
-      const historyObj = {category: '', results: this.counter}
-// need to pass in category from previous view
-      requestH.post(historyObj);
-      console.log(historyObj);
+      this.element.innerHTML = '<canvas id="myChart" width="400" height="400"></canvas>';
+      const ctx = document.getElementById("myChart");
+      const arrayRightWrong = [];
+      arrayRightWrong.push(this.counter.filter(x => x === 1).length);
+      arrayRightWrong.push(this.counter.filter(x => x === 0).length);
+      console.log(arrayRightWrong);
+      const myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            data: arrayRightWrong
+          }]
+        },
+        options: {}
+      })
     }
-  });
+
+
+
+    // const wellDone = document.createElement('h3');
+    // const score = this.counter.filter(score => score > 0).length;
+    // wellDone.textContent = `Congratulations! You finished the round with a score of ${score} out of 6!`;
+    // this.element.appendChild(wellDone);
+    // const requestH = new Request('http://localhost:3000/api/history');
+    // const historyObj = {category: '', results: this.counter}
+    // // need to pass in category from previous view
+    //       requestH.post(historyObj);
+    //       console.log(historyObj);
+  }
+)
 };
 
 ResultView.prototype.render = function (answerObj) {
