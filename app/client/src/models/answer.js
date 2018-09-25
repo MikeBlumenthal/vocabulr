@@ -8,13 +8,12 @@ const Answer = function (element) {
 Answer.prototype.bindEvents = function () {
   PubSub.subscribe('ResponseView:answer-selected', (event) => {
     if( event.detail.value !== undefined ){
-      this.element.innerHTML = '';
-      this.check(event.detail);
+      this.checkAnswer(event.detail);
     };
   });
 };
 
-Answer.prototype.check = function (answer) {
+Answer.prototype.checkAnswer = function (answer) {
   const userGuess = answer.value;
   const request = new Request('http://localhost:3000/api/questions');
   request.getOne(answer.id).then((response) => {

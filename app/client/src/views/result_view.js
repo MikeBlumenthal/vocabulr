@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const Request = require('../helpers/request.js');
 
 const ResultView = function(element){
   this.element = element;
@@ -10,19 +11,27 @@ ResultView.prototype.bindEvents = function () {
     const correctness = Object.keys(event.detail)[0];
     this.element.innerHTML = '';
     const header = document.createElement('h2');
+    const request = new Request('http://localhost:3000/api/questions');
+    let id = null;
     if (correctness === 'correct') {
-      header.textContent = 'Correct :D';
+      header.textContent = 'You were correct!';
       this.counter.push(1);
+      id = event.detail.correct.id;
+      request.getOne()
     } else {
-      header.textContent = 'Incorrect :(';
+      header.textContent = 'Idiot!';
       this.counter.push(0);
+      id = event.detail.incorrect.id;
     };
     this.element.appendChild(header);
 
-    this.progressBar();
+    request.getOne(id).then( (response) => {
+      const correctAnswer = response[0].answers.find(answer => answer.correct === true);
+      this.render(correctAnswer);
+    });
 
-    const hintButton = document.querySelector('#hint-btn');
-    hintButton.style.visibility = 'hidden';
+
+    this.progressBar();
 
     if (this.counter.length < 6){
       const nextButton = document.createElement('button');
@@ -32,7 +41,6 @@ ResultView.prototype.bindEvents = function () {
       nextButton.addEventListener('click', (event) => {
         event.preventDefault();
         PubSub.publish('ResultView:next-question', 1);
-        this.element.innerHTML = '';
       })
     } else {
       const wellDone = document.createElement('h3');
@@ -41,9 +49,29 @@ ResultView.prototype.bindEvents = function () {
       this.element.appendChild(wellDone);
     }
   });
-
-
 };
+
+ResultView.prototype.render = function (answerObj) {
+  const answerText = answerObj.answer;
+  const answerImg = answerObj.image;
+
+  const correctDiv = document.createElement('div');
+  correctDiv.id = 'correct-result';
+
+  const resultP = document.createElement('p');
+  resultP.textContent = answerText;
+  resultP.id = 'correct-text';
+
+  const img = document.createElement('img');
+  img.src = answerImg;
+  img.id = 'correct-img';
+
+  correctDiv.appendChild(resultP);
+  correctDiv.appendChild(img);
+
+  this.element.appendChild(correctDiv);
+};
+
 ResultView.prototype.progressBar = function () {
   const targetBox = document.querySelector(`#box${this.counter.length}`);
   let resultCopy = this.counter.map(x => x);

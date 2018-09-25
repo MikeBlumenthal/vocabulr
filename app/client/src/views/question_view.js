@@ -5,23 +5,19 @@ const QuestionView = function(element){
 };
 
 QuestionView.prototype.bindEvents = function () {
-  PubSub.subscribe('Question:first-question-in-category', (event) => {
-    this.element.innerHTML = '';
+  PubSub.subscribe('Question:first-question-ready', (event) => {
     const questionWord = event.detail.word;
     this.createQuestion(questionWord);
   });
 
   PubSub.subscribe('Question:next-one-ready', (event) => {
-    this.element.innerHTML = '';
     const questionWord = event.detail.word;
     this.createQuestion(questionWord);
   })
 };
 
 QuestionView.prototype.createQuestion = function (word) {
-  const hintButton = document.querySelector('#hint-btn');
-  hintButton.style.visibility = 'visible';
-
+  this.element.innerHTML = '';
   const questionTitle = document.createElement('h3');
   questionTitle.textContent = 'What does this mean?';
   this.element.appendChild(questionTitle);

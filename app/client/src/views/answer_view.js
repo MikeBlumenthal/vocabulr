@@ -1,6 +1,8 @@
+
 const AnswerView = function(element){
   this.element = element;
 };
+
 
 AnswerView.prototype.render = function (answerObj) {
   const answer = answerObj.answer;

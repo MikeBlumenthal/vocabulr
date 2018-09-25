@@ -1,3 +1,4 @@
+
 .answer {
   border-bottom: 5px solid grey;
   border-right: 5px solid grey;
@@ -22,6 +23,18 @@
 img {
   width: 100px;
   height: 100px;
+}
+
+#body-view{
+  height: 500px;
+}
+
+#head-view{
+   height: 250px;
+}
+
+#question-word{
+  width: 15%;
 }
 
 #question-word:hover {
