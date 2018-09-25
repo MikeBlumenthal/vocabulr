@@ -44,7 +44,7 @@ ResultView.prototype.bindEvents = function () {
         PubSub.publish('ResultView:next-question', 1);
       })
     } else {
-      this.element.innerHTML = '<canvas id="myChart" width="400" height="400"></canvas>';
+      this.element.innerHTML = '<canvas id="myChart" width="100" height="100"></canvas>';
       const ctx = document.getElementById("myChart");
       const arrayRightWrong = [];
       arrayRightWrong.push(this.counter.filter(x => x === 1).length);
@@ -53,9 +53,13 @@ ResultView.prototype.bindEvents = function () {
       const myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
+          labels: ["Correct", "Incorrect"],
           datasets: [{
-            data: arrayRightWrong
-          }]
+            data: arrayRightWrong,
+            backgroundColor: ['green', 'red'],
+            borderColor: ['darkgreen', 'crimson'],
+            borderWidth: 1
+          }],
         },
         options: {}
       })
