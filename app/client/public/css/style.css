@@ -27,3 +27,18 @@ img {
 #question-word:hover {
   cursor: url('../images/speaker.png'), auto;
 }
+
+table {
+  border: 1px solid black;
+  width: 30%;
+  background-color: black;
+}
+
+th {
+  background-color: white;
+  border: 1px solid black;
+  width: 1fr;
+  height: 1em;
+  padding: .25em;
+
+}

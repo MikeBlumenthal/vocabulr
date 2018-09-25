@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const hintView = new HintView();
   hintView.bindEvents();
 
-  const answer = new Answer();
+  const answer = new Answer(responseViewTarget);
   answer.bindEvents();
 
   const questions = new Question();

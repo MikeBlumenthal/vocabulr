@@ -15,7 +15,6 @@ ResponseView.prototype.bindEvents = function () {
   });
   this.element.addEventListener('click', (event) => {
     PubSub.publish('ResponseView:answer-selected', event.target);
-    this.element.innerHTML = '';
   })
 };
 
