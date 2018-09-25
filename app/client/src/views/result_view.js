@@ -36,7 +36,7 @@ ResultView.prototype.bindEvents = function () {
 
     if (this.counter.length < 6){
       const nextButton = document.createElement('button');
-      nextButton.id = 'next-question';
+      nextButton.id = 'next-btn';
       nextButton.textContent = "Next question!";
       this.element.appendChild(nextButton);
       nextButton.addEventListener('click', (event) => {
@@ -47,15 +47,13 @@ ResultView.prototype.bindEvents = function () {
 
       const canvas = document.createElement('canvas');
       canvas.id = 'progress-chart';
-      // canvas.style.height = '100px';
-      // canvas.style.width = '100px';
       this.element.appendChild(canvas);
 
-      const ctx = document.getElementById("progress-chart");
       const arrayRightWrong = [];
       arrayRightWrong.push(this.counter.filter(x => x === 1).length);
       arrayRightWrong.push(this.counter.filter(x => x === 0).length);
-      console.log(arrayRightWrong);
+
+      const ctx = document.getElementById("progress-chart");
       const myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {

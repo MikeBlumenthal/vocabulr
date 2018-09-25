@@ -33,6 +33,7 @@ CategoryView.prototype.createCategoryOptions = function () {
 
 CategoryView.prototype.makeButton = function (category) {
   const catButton = document.createElement('button');
+  catButton.classList.add('category-btn')
   catButton.textContent = `${category.toUpperCase()}`;
   catButton.value = category;
   this.element.appendChild(catButton);

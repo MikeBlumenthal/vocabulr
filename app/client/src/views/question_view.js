@@ -19,7 +19,8 @@ QuestionView.prototype.bindEvents = function () {
 QuestionView.prototype.createQuestion = function (word) {
   this.element.innerHTML = '';
   const questionTitle = document.createElement('h3');
-  questionTitle.textContent = 'What does this mean?';
+  questionTitle.textContent = 'What is the word for...';
+  questionTitle.id = 'question-title'
   this.element.appendChild(questionTitle);
 
   const questionWord = document.createElement('h2');

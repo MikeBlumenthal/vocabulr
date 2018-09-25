@@ -1,18 +1,36 @@
+/*
+
+https://coolors.co/5bc0eb-fde74c-9bc53d-e55934-fa7921
+
+Blue - #5BC0EB
+Yellow - #FDE74C
+Green - #9BC53D
+Red - #9BC53D
+Orange - #FA7921
+BG Grey - #444140
+
+Title Font:
+font-family: 'Amatic SC', cursive;
+
+Sub Font:
+font-family: 'Josefin Sans', sans-serif;
+
+*/
+
 body, html {
   text-align: center;
   margin: 0;
   width: 100%;
+  background-color: #f7f7f7;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.5em;
+  color: #3c3c3c;
 }
 
 #progress-bar {
   display: flex;
   align-items: center;
   justify-content: center
-}
-
-#progress-chart {
-  width: 500px;
-  height: 500px;
 }
 
 .answer {
@@ -42,18 +60,26 @@ img {
 }
 
 #body-view{
-  background-color: pink;
+  /* background-color: pink; */
 }
 
 #head-view{
-  background-color: rebeccapurple;
+  font-family: 'Josefin Sans', sans-serif;
+  /* background-color: rebeccapurple; */
   margin: 0;
 }
 
+#question-title{
+  margin-bottom: -0.1em;
+}
+
 #question-word{
+  font-family: 'Amatic SC', cursive;
+  color: #FA7921;
   width: 15%;
   display: block;
   margin: 0 auto;
+  font-size: 2.5em;
 }
 
 #question-word:hover {
@@ -63,6 +89,35 @@ img {
 #hint-btn {
   display: block;
   margin: 0 auto;
+}
+
+button {
+  font-family: 'Amatic SC', cursive;
+  background-color: #65ab00;
+  color: white;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+  font-size: 2em;
+}
+
+button:hover {
+  background-color: #8ad027;
+  color: white;
+  cursor: pointer;
+}
+
+.category-btn {
+  padding: 0.3em 0.5em;
+  margin: 1em;
+}
+
+#hint-btn {
+  padding: 0.1em 0.3em;
+  margin-bottom: 1em;
+}
+
+#next-btn {
+  padding: 0.5em 2em;
 }
 
 table {

@@ -35,5 +35,4 @@ Answer.prototype.checkAnswer = function (answer) {
   });
 };
 
-
 module.exports = Answer;
