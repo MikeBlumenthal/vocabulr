@@ -1,40 +1,27 @@
 const Chart = require('chart.js');
 const PubSub = require('../helpers/pub_sub.js');
-const Request = require('../helpers/request.js');
 
 const ResultView = function(element){
   this.element = element;
-  this.counter = [];
+  // this.counter = [];MOVED
 };
 
 ResultView.prototype.bindEvents = function () {
   PubSub.subscribe('Answer:answer-selected', (event) => {
-    const correctness = Object.keys(event.detail)[0];
     this.element.innerHTML = '';
     const header = document.createElement('h2');
-    const request = new Request('http://localhost:3000/api/questions');
-    let id = null;
-    if (correctness === 'correct') {
+    if (event.detail.correct) {
       header.textContent = 'You were correct!';
-      this.counter.push(1);
-      id = event.detail.correct.id;
-      request.getOne()
+      // this.counter.push(1); MOVED
     } else {
       header.textContent = 'Sorry! That is incorrect';
-      this.counter.push(0);
-      id = event.detail.incorrect.id;
+      // this.counter.push(0); MOVED
     };
     this.element.appendChild(header);
 
-    request.getOne(id).then( (response) => {
-      const correctAnswer = response[0].answers.find(answer => answer.correct === true);
-      this.render(correctAnswer);
-    });
+    // this.progressBar(); MOVED
 
-
-    this.progressBar();
-
-    if (this.counter.length < 6){
+    if (event.detail.counter.length < 6){
       const nextButton = document.createElement('button');
       nextButton.id = 'next-question';
       nextButton.textContent = "Next question!";
@@ -53,8 +40,8 @@ ResultView.prototype.bindEvents = function () {
 
       const ctx = document.getElementById("progress-chart");
       const arrayRightWrong = [];
-      arrayRightWrong.push(this.counter.filter(x => x === 1).length);
-      arrayRightWrong.push(this.counter.filter(x => x === 0).length);
+      arrayRightWrong.push(event.detail.counter.filter(x => x === 1).length);
+      arrayRightWrong.push(event.detail.counter.filter(x => x === 0).length);
       console.log(arrayRightWrong);
       const myChart = new Chart(ctx, {
         type: 'doughnut',
@@ -106,16 +93,16 @@ ResultView.prototype.render = function (answerObj) {
 
   this.element.appendChild(correctDiv);
 };
-
-ResultView.prototype.progressBar = function () {
-  const targetBox = document.querySelector(`#box${this.counter.length}`);
-  let resultCopy = this.counter.map(x => x);
-  let result = resultCopy.pop();
-  if (result === 1){
-    targetBox.setAttribute('style', 'background-color: green');
-  }else{
-    targetBox.setAttribute('style', 'background-color: red');
-  }
-};
+//MOVED FUNCTION BELOW TO ANSWER MODEL
+// ResultView.prototype.progressBar = function () {
+//   const targetBox = document.querySelector(`#box${this.counter.length}`);
+//   let resultCopy = this.counter.map(x => x);
+//   let result = resultCopy.pop();
+//   if (result === 1){
+//     targetBox.setAttribute('style', 'background-color: green');
+//   }else{
+//     targetBox.setAttribute('style', 'background-color: red');
+//   }
+// };
 
 module.exports = ResultView;
