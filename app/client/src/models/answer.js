@@ -1,12 +1,14 @@
 const PubSub = require('../helpers/pub_sub.js');
 const Request = require('../helpers/request.js');
 
-const Answer = function (element) {
-  this.element = element;
+const Answer = function () {
+  this.category = null;
 };
 
 Answer.prototype.bindEvents = function () {
   PubSub.subscribe('ResponseView:answer-selected', (event) => {
+    this.category = event.detail.category;
+    console.log(this.category);
     if( event.detail.value !== undefined ){
       this.checkAnswer(event.detail);
     };

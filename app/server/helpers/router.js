@@ -20,15 +20,15 @@ const router = function(collection) {
   });
 
   r.post('/', (req, res) => { // CREATE
-    const newQuestion = req.body;
+    const newItem = req.body;
     collection
-      .insertOne(newQuestion)
+      .insertOne(newItem)
       .then(() => {
         // collection
         //   .find()
         //   .toArray()
         //   .then((info) => res.json(info))
-        console.log('New question added.')
+        console.log('Item posted.')
       })
   });
 

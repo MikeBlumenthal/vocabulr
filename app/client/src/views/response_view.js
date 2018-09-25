@@ -24,10 +24,12 @@ ResponseView.prototype.createAnswers = function (answers) {
   this.element.innerHTML = '';
   const answerArray = answers.answers;
   Randomiser.randomise(answerArray);
-  const id = (answers._id);
+  const id = answers._id;
+  const category = answers.category;
 
   answerArray.forEach((answer) => {
     answer.id = id;
+    answer.category = category;
     const answerView = new AnswerView(this.element);
     answerView.render(answer);
   });

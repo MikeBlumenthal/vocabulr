@@ -268,3 +268,16 @@ db.questions.insertMany([
     }
 
   ]);
+
+db.history.insertMany(
+[
+  {
+    category: 'animals',
+    results: [0,1,1,1,1,1]
+  },
+  {
+    category: 'fruit',
+    results: [1,0,0,1,1,1]
+  }
+]
+);

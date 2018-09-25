@@ -12,7 +12,7 @@ Question.prototype.getData = function () {
   this.request.get()
   .then((response) => {
     this.data = response;
-    PubSub.publish('Question:all-data', response)
+    PubSub.publish('Question:all-data', response);
   })
 };
 

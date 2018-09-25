@@ -19,7 +19,7 @@ ResultView.prototype.bindEvents = function () {
       id = event.detail.correct.id;
       request.getOne()
     } else {
-      header.textContent = 'Idiot!';
+      header.textContent = 'Sorry! That is incorrect';
       this.counter.push(0);
       id = event.detail.incorrect.id;
     };
@@ -47,6 +47,11 @@ ResultView.prototype.bindEvents = function () {
       const score = this.counter.filter(score => score > 0).length;
       wellDone.textContent = `Congratulations! You finished the round with a score of ${score} out of 6!`;
       this.element.appendChild(wellDone);
+      const requestH = new Request('http://localhost:3000/api/history');
+      const historyObj = {category: '', results: this.counter}
+// need to pass in category from previous view
+      requestH.post(historyObj);
+      console.log(historyObj);
     }
   });
 };
