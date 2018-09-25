@@ -7,6 +7,8 @@ const HintView = function(){
 HintView.prototype.bindEvents = function () {
   const hintBtn = document.querySelector('#hint-btn');
   hintBtn.addEventListener('click', () => {
+    hintBtn.disabled = true;
+    hintBtn.textContent = 'Hint used';
     this.giveHint();
   });
 };

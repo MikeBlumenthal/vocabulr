@@ -5,7 +5,6 @@ const CategoryView = require('./views/category_view.js');
 const ResultView = require('./views/result_view.js');
 const HintView = require('./views/hint_view.js');
 const Answer = require('./models/answer.js');
-// const Tts = require('./helpers/tts.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const headViewTarget = document.querySelector('#head-view');
@@ -23,10 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultView = new ResultView(bodyViewTarget);
   resultView.bindEvents();
 
-  const hintView = new HintView();
-  hintView.bindEvents();
-
-  const answer = new Answer();
+  const answer = new Answer(bodyViewTarget);
   answer.bindEvents();
 
   const questions = new Question();
