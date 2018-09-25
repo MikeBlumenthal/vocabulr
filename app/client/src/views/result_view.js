@@ -21,9 +21,6 @@ ResultView.prototype.bindEvents = function () {
 
     this.progressBar();
 
-    const hintButton = document.querySelector('#hint-btn');
-    hintButton.style.visibility = 'hidden';
-
     if (this.counter.length < 6){
       const nextButton = document.createElement('button');
       nextButton.id = 'next-question';
@@ -32,7 +29,6 @@ ResultView.prototype.bindEvents = function () {
       nextButton.addEventListener('click', (event) => {
         event.preventDefault();
         PubSub.publish('ResultView:next-question', 1);
-        this.element.innerHTML = '';
       })
     } else {
       const wellDone = document.createElement('h3');

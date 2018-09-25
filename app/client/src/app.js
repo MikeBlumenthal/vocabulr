@@ -8,28 +8,28 @@ const Answer = require('./models/answer.js');
 // const Tts = require('./helpers/tts.js');
 
 document.addEventListener('DOMContentLoaded', () => {
-  const questionViewTarget = document.querySelector('#question-view');
-  const questionView = new QuestionView(questionViewTarget);
+  const headViewTarget = document.querySelector('#head-view');
+  const bodyViewTarget = document.querySelector('#body-view');
+
+  const questionView = new QuestionView(headViewTarget);
   questionView.bindEvents();
 
-  const responseViewTarget = document.querySelector('#response-view');
-  const responseView = new ResponseView(responseViewTarget);
+  const responseView = new ResponseView(bodyViewTarget);
   responseView.bindEvents();
 
-  const categoryView = new CategoryView(questionViewTarget);
+  const categoryView = new CategoryView(headViewTarget);
   categoryView.bindEvents();
 
-  const resultViewTarget = document.querySelector('#result-view');
-  const resultView = new ResultView(resultViewTarget);
+  const resultView = new ResultView(bodyViewTarget);
   resultView.bindEvents();
 
   const hintView = new HintView();
   hintView.bindEvents();
 
-  const answer = new Answer(responseViewTarget);
+  const answer = new Answer(bodyViewTarget);
   answer.bindEvents();
 
   const questions = new Question();
-  questions.getData();
   questions.bindEvents();
+  questions.getData();
 });
