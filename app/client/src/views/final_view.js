@@ -1,7 +1,6 @@
 const PubSub = require('../helpers/pub_sub.js');
 const Request = require('../helpers/request.js');
 const Chart = require('chart.js');
-const ObjectID = require('mongodb').ObjectID;
 
 const FinalView = function (headElement, bodyElement) {
   this.head = headElement;
