@@ -8,7 +8,7 @@ AnswerView.prototype.render = function (answerObj) {
   const answer = answerObj.answer;
   const img = answerObj.image;
   const id = answerObj.id;
-  const category = answerObj.category;
+  const category = answerObj.name;
 
   const div = document.createElement('div');
   div.classList.add('answer');

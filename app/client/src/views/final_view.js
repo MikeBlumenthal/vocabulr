@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const Request = require('../helpers/pub_sub.js');
 const Chart = require('chart.js');
 
 const FinalView = function (element) {
@@ -8,7 +9,8 @@ const FinalView = function (element) {
 FinalView.prototype.bindEvents = function(){
   PubSub.subscribe('ResultView:last-question-answered', (event) => {
     this.element.innerHTML = '';
-    this.renderPie(event.detail);
+    console.log(event.detail);
+    // this.renderPie(event.detail);
   })
 }
 
@@ -38,6 +40,19 @@ const myChart = new Chart(ctx, {
   },
   options: {}
 })
+};
+
+FinalView.prototype.postProgress = function () {
+
+      const requestH = new Request('http://localhost:3000/api/history');
+      const historyObj = {category: '', results: this.counter}
+      // need to pass in category from previous view
+            requestH.post(historyObj);
+            console.log(historyObj);
+};
+
+FinalView.prototype.historyChart = function () {
+
 };
 
 module.exports = FinalView;

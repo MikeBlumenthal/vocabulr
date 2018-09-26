@@ -2,7 +2,6 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const ResultView = function(element){
   this.element = element;
-  // this.counter = [];MOVED
 };
 
 ResultView.prototype.bindEvents = function () {
@@ -11,14 +10,11 @@ ResultView.prototype.bindEvents = function () {
     const header = document.createElement('h2');
     if (event.detail.correct) {
       header.textContent = 'You were correct!';
-      // this.counter.push(1); MOVED
     } else {
       header.textContent = 'Sorry! That is incorrect';
-      // this.counter.push(0); MOVED
     };
     this.element.appendChild(header);
 
-    // this.progressBar(); MOVED
 
     if (event.detail.counter.length < 6){
       const nextButton = document.createElement('button');
@@ -34,50 +30,14 @@ ResultView.prototype.bindEvents = function () {
       resultButton.id = 'result';
       resultButton.textContent = "RESULTS!";
       this.element.appendChild(resultButton);
-      const results = event.detail.counter;
+      const results = event.detail;
       resultButton.addEventListener('click', (event) => {
         event.preventDefault();
         console.log(results);
         PubSub.publish('ResultView:last-question-answered', results)
       })
-//MOVED TO FINAL VIEW
-      // const canvas = document.createElement('canvas');
-      // canvas.id = 'progress-chart';
-      // // canvas.style.height = '100px';
-      // // canvas.style.width = '100px';
-      // this.element.appendChild(canvas);
-      //
-      // const ctx = document.getElementById("progress-chart");
-      // const arrayRightWrong = [];
-      // arrayRightWrong.push(event.detail.counter.filter(x => x === 1).length);
-      // arrayRightWrong.push(event.detail.counter.filter(x => x === 0).length);
-      // console.log(arrayRightWrong);
-      // const myChart = new Chart(ctx, {
-      //   type: 'doughnut',
-      //   data: {
-      //     labels: ["Correct", "Incorrect"],
-      //     datasets: [{
-      //       data: arrayRightWrong,
-      //       backgroundColor: ['green', 'red'],
-      //       borderColor: ['darkgreen', 'crimson'],
-      //       borderWidth: 1
-      //     }],
-      //   },
-      //   options: {}
-      // })
+
     }
-
-
-
-    // const wellDone = document.createElement('h3');
-    // const score = this.counter.filter(score => score > 0).length;
-    // wellDone.textContent = `Congratulations! You finished the round with a score of ${score} out of 6!`;
-    // this.element.appendChild(wellDone);
-    // const requestH = new Request('http://localhost:3000/api/history');
-    // const historyObj = {category: '', results: this.counter}
-    // // need to pass in category from previous view
-    //       requestH.post(historyObj);
-    //       console.log(historyObj);
   }
 )
 };
@@ -102,16 +62,6 @@ ResultView.prototype.render = function (answerObj) {
 
   this.element.appendChild(correctDiv);
 };
-//MOVED FUNCTION BELOW TO ANSWER MODEL
-// ResultView.prototype.progressBar = function () {
-//   const targetBox = document.querySelector(`#box${this.counter.length}`);
-//   let resultCopy = this.counter.map(x => x);
-//   let result = resultCopy.pop();
-//   if (result === 1){
-//     targetBox.setAttribute('style', 'background-color: green');
-//   }else{
-//     targetBox.setAttribute('style', 'background-color: red');
-//   }
-// };
+
 
 module.exports = ResultView;

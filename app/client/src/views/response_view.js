@@ -15,7 +15,6 @@ ResponseView.prototype.bindEvents = function () {
     this.createAnswers(event.detail);
   });
   this.element.addEventListener('click', (event) => {
-    console.log(event.target);
     if( (event.target.id !== 'next-question') && (event.target.id !== 'result') ){
       PubSub.publish('ResponseView:answer-selected', event.target);
     }
@@ -27,11 +26,9 @@ ResponseView.prototype.createAnswers = function (answers) {
   const answerArray = answers.answers;
   Randomiser.randomise(answerArray);
   const id = answers._id;
-  const category = answers.category;
 
   answerArray.forEach((answer) => {
     answer.id = id;
-    answer.category = category;
     const answerView = new AnswerView(this.element);
     answerView.render(answer);
   });

@@ -13,11 +13,11 @@ CategoryView.prototype.bindEvents = function () {
       categoryArray.push(question.category);
     }
 
-    function unique(value, index, array){
-      return array.indexOf(value) === index;
-    }
+    // function unique(value, index, array){
+    //   return array.indexOf(value) === index;
+    // }
 
-    this.categories = categoryArray.filter(unique);
+    this.categories = categoryArray.filter((value, index, array) => array.indexOf(value) === index);
     this.createCategoryOptions();
   })
 };

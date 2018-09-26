@@ -26,7 +26,8 @@ Answer.prototype.checkAnswer = function (answer) {
     const result = {
       correctAnswerObj: correctAnswer,
       userCorrect: null,
-      counter: null
+      counter: null,
+      category: this.category
     };
 
     if (userGuess === correctAnswer.answer) {

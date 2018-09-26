@@ -113,7 +113,7 @@ db.questions.insertMany([
       ]
     },
     {
-      word:'die Himbeere',
+      word:'die Traube',
       category: 'fruit',
       answers:
       [
@@ -123,14 +123,14 @@ db.questions.insertMany([
           image: 'http://www.picserver.org/pictures/strawberry02-lg.jpg'
         },
         {
-          answer: 'raspberry',
-          correct: true,
-          image: 'http://pngimg.com/uploads/raspberry/raspberry_PNG5070.png'
+          answer: 'apple',
+          correct: false,
+          image: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Red_apple_on_white_background.jpg'
         },
         {
           answer: 'grape',
-          correct: false,
-          image: 'http://pngimg.com/uploads/grape/grape_PNG2959.png'
+          correct: true,
+          image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/twitter/154/grapes_1f347.png'
         }
       ]
     },
