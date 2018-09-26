@@ -15,7 +15,8 @@ ResponseView.prototype.bindEvents = function () {
     this.createAnswers(event.detail);
   });
   this.element.addEventListener('click', (event) => {
-    if(event.target.id !== 'next-question'){
+    console.log(event.target);
+    if( (event.target.id !== 'next-question') && (event.target.id !== 'result') ){
       PubSub.publish('ResponseView:answer-selected', event.target);
     }
   })

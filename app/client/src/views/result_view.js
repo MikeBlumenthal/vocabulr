@@ -1,4 +1,3 @@
-const Chart = require('chart.js');
 const PubSub = require('../helpers/pub_sub.js');
 
 const ResultView = function(element){
@@ -31,31 +30,41 @@ ResultView.prototype.bindEvents = function () {
         PubSub.publish('ResultView:next-question', 1);
       })
     } else {
-
-      const canvas = document.createElement('canvas');
-      canvas.id = 'progress-chart';
-      // canvas.style.height = '100px';
-      // canvas.style.width = '100px';
-      this.element.appendChild(canvas);
-
-      const ctx = document.getElementById("progress-chart");
-      const arrayRightWrong = [];
-      arrayRightWrong.push(event.detail.counter.filter(x => x === 1).length);
-      arrayRightWrong.push(event.detail.counter.filter(x => x === 0).length);
-      console.log(arrayRightWrong);
-      const myChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-          labels: ["Correct", "Incorrect"],
-          datasets: [{
-            data: arrayRightWrong,
-            backgroundColor: ['green', 'red'],
-            borderColor: ['darkgreen', 'crimson'],
-            borderWidth: 1
-          }],
-        },
-        options: {}
+      const resultButton = document.createElement('button');
+      resultButton.id = 'result';
+      resultButton.textContent = "RESULTS!";
+      this.element.appendChild(resultButton);
+      const results = event.detail.counter;
+      resultButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log(results);
+        PubSub.publish('ResultView:last-question-answered', results)
       })
+//MOVED TO FINAL VIEW
+      // const canvas = document.createElement('canvas');
+      // canvas.id = 'progress-chart';
+      // // canvas.style.height = '100px';
+      // // canvas.style.width = '100px';
+      // this.element.appendChild(canvas);
+      //
+      // const ctx = document.getElementById("progress-chart");
+      // const arrayRightWrong = [];
+      // arrayRightWrong.push(event.detail.counter.filter(x => x === 1).length);
+      // arrayRightWrong.push(event.detail.counter.filter(x => x === 0).length);
+      // console.log(arrayRightWrong);
+      // const myChart = new Chart(ctx, {
+      //   type: 'doughnut',
+      //   data: {
+      //     labels: ["Correct", "Incorrect"],
+      //     datasets: [{
+      //       data: arrayRightWrong,
+      //       backgroundColor: ['green', 'red'],
+      //       borderColor: ['darkgreen', 'crimson'],
+      //       borderWidth: 1
+      //     }],
+      //   },
+      //   options: {}
+      // })
     }
 
 
