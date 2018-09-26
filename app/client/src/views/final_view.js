@@ -1,138 +1,144 @@
 const PubSub = require('../helpers/pub_sub.js');
-const Request = require('../helpers/request.js');
 const Chart = require('chart.js');
 
 const FinalView = function (headElement, bodyElement) {
   this.head = headElement;
   this.body = bodyElement;
-  this.history = null;
-  this.categories = null;
-  this.request = new Request('http://localhost:3000/api/history/');
 }
+
 
 FinalView.prototype.bindEvents = function(){
-  PubSub.subscribe('ResultView:result', (event) => {
+  PubSub.subscribe('History:data-posted', (event) => {
     this.head.innerHTML = '';
     this.body.innerHTML = '';
-    this.renderPie(event.detail.counter);
-    this.postProgress(event.detail.counter, event.detail.category);
-    this.getHistory();
+    const info = event.detail;
+    this.yourScore(info.score);
+    this.returnButton();
+    this.graphTitle();
+    this.renderGraph(info);
   })
 }
 
 
-FinalView.prototype.renderPie = function (counter) {
+FinalView.prototype.yourScore = function (array) {
+  const scoreText = document.createElement('h3');
+  const score = array.reduce( (a,b) => a + b );
+  scoreText.textContent = `Your score this time was ${score} out of 6!`;
+  this.head.appendChild(scoreText);
+};
+
+
+FinalView.prototype.returnButton = function () {
+  const returnButton = document.createElement('button');
+  returnButton.textContent = 'Try again!';
+  returnButton.id = 'return';
+  this.head.appendChild(returnButton);
+  returnButton.addEventListener('click', (e) => {
+    location.reload();
+  });
+};
+
+
+FinalView.prototype.graphTitle = function () {
+  const title = document.createElement('h3');
+  title.textContent = `Your past results!`;
+  this.head.appendChild(title);
+};
+
+
+FinalView.prototype.renderGraph = function (info) {
+
+  Chart.defaults.global.defaultFontFamily = "'Amatic SC', cursive";
+  Chart.defaults.global.elements.line.fill = false;
+  Chart.defaults.global.defaultFontSize = 30;
 
   const canvas = document.createElement('canvas');
-  canvas.id = 'progress-chart';
+  canvas.id = 'history-chart';
   this.body.appendChild(canvas);
 
-  const ctx = document.getElementById("progress-chart");
-  const arrayRightWrong = [];
-  arrayRightWrong.push(counter.filter(x => x === 1).length);
-  arrayRightWrong.push(counter.filter(x => x === 0).length);
+  const ctx = document.getElementById("history-chart");
+
   const myChart = new Chart(ctx, {
-    type: 'doughnut',
+    type: 'line',
     data: {
-      labels: ["Correct", "Incorrect"],
-      datasets: [{
-        data: arrayRightWrong,
-        backgroundColor: ['#65ab00', '#f24f4f'],
-        borderWidth: 1
-      }],
-    },
-    options: {
-      legend: {
-        display: false
-      }
-    }
-  })
-};
-
-
-FinalView.prototype.postProgress = function (counter, category) {
-
-  const historyObj = {
-    category: category,
-    results: counter
-  };
-  this.request.post(historyObj);
-  console.log('Post attempted.');
-};
-
-
-FinalView.prototype.getHistory = function () {
-  this.request.get()
-  .then((response) => {
-    this.history = response;
-    this.getDatasets();
-  })
-}
-
-//
-// FinalView.prototype.dateFromObjectId = function (id) {
-//   return new Date(parseInt(id.substring(0, 8), 16) * 1000);
-// };
-
-
-// FinalView.prototype.dateHistory = function () {
-//   this.history.forEach( (obj) => {
-//     const date = this.dateFromObjectId(obj._id);
-//     obj.date = date;
-//   })
-// };
-
-FinalView.prototype.getDatasets = function () {
-
-  this.categories = this.history
-  .map( (obj) => obj.category )
-  .filter((value, index, array) => array.indexOf(value) === index);
-
-  const data = [];
-  this.categories.forEach( (category) => {
-    const obj = {
-      cat: category
-    };
-    const array = this.history
-    .filter(obj => obj.category === category);
-
-    const array2 = array
-    .map( (obj) => obj.results
-    .reduce( (a,b) => a + b) );
-    obj.scores = array2;
-    data.push(obj);
-  })
-  console.log(this.categories);
-  console.log(data);
-  this.renderGraph(data);
-};
-
-FinalView.prototype.renderGraph = function (data) {
-
-
-    const canvas = document.createElement('canvas');
-    canvas.id = 'history-chart';
-    this.body.appendChild(canvas);
-
-    const ctx = document.getElementById("history-chart");
-
-    const myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: [1,2,3,4,5,6,7,8,9,10],
-        datasets: [
-          {
+      labels: [' ','less recent',' ','more recent',' '],
+      datasets: [
+        {
           borderColor: '#BC4B51',
           borderWidth: 7,
-          label: this.categories[0],
-          data: data[0].scores,
-          fill: false,
+          label: info.categories[0],
+          data: info.data[0].scores,
           pointStyle: 'circle',
           spanGaps: false
-        }],
-      },
-      options: {}
-    })
+        },
+        {
+          borderColor: '#5B8E7D',
+          borderWidth: 7,
+          label: info.categories[1],
+          data: info.data[1].scores,
+          pointStyle: 'circle',
+          spanGaps: false
+        },
+        {
+          borderColor: '#F4A259',
+          borderWidth: 7,
+          label: info.categories[2],
+          data: info.data[2].scores,
+          pointStyle: 'circle',
+          spanGaps: false
+        },
+        {
+          borderColor: '#F4E285',
+          borderWidth: 7,
+          label: info.categories[3],
+          data: info.data[3].scores,
+          pointStyle: 'circle',
+          spanGaps: false
+        },
+        {
+          borderColor: '#8CB369',
+          borderWidth: 7,
+          label: info.categories[4],
+          data: info.data[4].scores,
+          pointStyle: 'circle',
+          spanGaps: false
+        }
+      ],
+    },
+    options: {
+      tooltips: {enabled: false},
+      scales: {
+        yAxes: [
+          {
+            scaleLabel: {
+              display: true,
+              labelString: "Score"
+            },
+            ticks: {
+              min: 0,
+              max: 7,
+              callback: function(val) {
+                if(val == 0 || val == 7) {
+                  return null;
+                }
+                return Number.isInteger(val) ? val : null;
+              }
+            }
+          }
+        ],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: "your previous rounds"
+          }
+        }]
+      }
+    }
+  }
+)
 };
+
+
+
 
 module.exports = FinalView;

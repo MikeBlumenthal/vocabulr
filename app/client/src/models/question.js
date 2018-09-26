@@ -8,13 +8,6 @@ const Question = function() {
   this.request = new Request('http://localhost:3000/api/questions');
 }
 
-Question.prototype.getData = function () {
-  this.request.get()
-  .then((response) => {
-    this.data = response;
-    PubSub.publish('Question:all-data', response);
-  })
-};
 
 Question.prototype.bindEvents = function () {
   PubSub.subscribe('ResultView:next-btn', (event) => {
@@ -31,6 +24,15 @@ Question.prototype.bindEvents = function () {
       question: firstQuestion
     };
     PubSub.publish('Question:first-question-ready', payload);
+  })
+};
+
+
+Question.prototype.getData = function () {
+  this.request.get()
+  .then((response) => {
+    this.data = response;
+    PubSub.publish('Question:all-data', response);
   })
 };
 

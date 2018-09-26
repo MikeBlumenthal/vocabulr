@@ -999,76 +999,27 @@ db.history.insertMany(
   [
     {
       category: 'animals',
-      results: [0,0,0,0,0,1]
+      results: [0,0,0,0,0,0]
+    },
+
+    {
+      category: 'sports',
+      results: [0,0,0,0,0,0]
+    },
+
+    {
+      category: 'countries',
+      results: [0,0,0,0,0,0]
+    },
+
+    {
+      category: 'miscellaneous',
+      results: [0,0,0,0,0,0]
     },
 
     {
       category: 'fruit',
-      results: [1,0,0,0,0,1]
-    },
-    {
-      category: 'animals',
-      results: [0,0,0,1,1,1]
-    },
-    {
-      category: 'animals',
-      results: [0,0,1,1,1,0]
-    },
-    {
-      category: 'miscellaneous',
-      results: [0,0,0,1,1,0]
-    },
-    {
-      category: 'fruit',
-      results: [0,1,1,1,1,1]
-    },
-    {
-      category: 'fruit',
-      results: [0,0,1,1,1,1]
-    },
-    {
-      category: 'fruit',
-      results: [1,1,1,1,1,1]
-    },
-    {
-      category: 'fruit',
-      results: [0,1,1,1,1,1]
-    },
-    {
-      category: 'sports',
-      results: [0,0,0,0,1,1]
-    },
-    {
-      category: 'countries',
-      results: [0,1,1,1,1,1]
-    },
-    {
-      category: 'countries',
-      results: [0,1,1,1,1,1]
-    },
-    {
-      category: 'countries',
-      results: [0,1,0,0,1,1]
-    },
-    {
-      category: 'countries',
-      results: [0,1,1,1,1,1]
-    },
-    {
-      category: 'sports',
-      results: [0,1,0,1,1,1]
-    },
-    {
-      category: 'miscellaneous',
-      results: [0,1,0,1,1,1]
-    },
-    {
-      category: 'sports',
-      results: [0,1,0,1,1,1]
-    },
-    {
-      category: 'miscellaneous',
-      results: [0,1,1,1,1,1]
+      results: [0,0,0,0,0,0]
     }
   ]
 );

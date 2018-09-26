@@ -8,6 +8,7 @@ const CategoryView = function (headElement, bodyElement) {
 
 CategoryView.prototype.bindEvents = function () {
   PubSub.subscribe('Question:all-data', (event) => {
+
     const allQuestions = event.detail;
     const categoryArray = [];
     for (question of allQuestions) {

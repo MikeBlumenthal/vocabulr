@@ -5,7 +5,7 @@ const Answer = function () {
   this.counter = [];
   this.category = null;
   this.word = null;
-};
+}
 
 Answer.prototype.bindEvents = function () {
   PubSub.subscribe('ResponseView:answer-selected', (event) => {

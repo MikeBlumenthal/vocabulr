@@ -1,5 +1,6 @@
 const Answer = require('./models/answer.js');
 const Question = require('./models/question.js');
+const HistoryData = require('./models/history.js');
 const CategoryView = require('./views/category_view.js');
 const ResponseView = require('./views/response_view.js');
 const ResultView = require('./views/result_view.js');
@@ -23,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const answer = new Answer();
   answer.bindEvents();
+  
+  const history = new HistoryData();
+  history.bindEvents();
 
   const questions = new Question();
   questions.bindEvents();
