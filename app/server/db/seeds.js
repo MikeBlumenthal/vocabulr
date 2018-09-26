@@ -311,7 +311,7 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'snake',
-        correct: false,
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/emojione/151/snake_1f40d.png'
       },
       {
