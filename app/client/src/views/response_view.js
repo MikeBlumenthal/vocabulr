@@ -46,18 +46,14 @@ ResponseView.prototype.createQuestion = function (word) {
 
 
 ResponseView.prototype.createAnswers = function (obj) {
-  const category = obj.category;
-  const id = obj._id;
-  const word = obj.word
 
   const answerArray = obj.answers;
   Randomiser.randomise(answerArray);
 
   answerArray.forEach((answer) => {
-
-    answer.word = word;
-    answer.id = id;
-    answer.category = category;
+    answer.category = obj.category;
+    answer.id = obj._id;
+    answer.word = obj.word;
     const answerView = new AnswerView(this.body);
     answerView.render(answer);
   });

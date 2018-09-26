@@ -1,4 +1,3 @@
-// const PubSub = require('../helpers/pub_sub.js');
 
 const QuestionView = function(element){
   this.element = element;
@@ -10,7 +9,7 @@ QuestionView.prototype.createQuestion = function (word) {
   questionTitle.id = 'question-title'
   this.element.appendChild(questionTitle);
   this.justWord(word);
-  };
+};
 
 
 QuestionView.prototype.justWord = function (word) {
