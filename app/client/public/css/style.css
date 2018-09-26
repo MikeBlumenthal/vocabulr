@@ -37,8 +37,8 @@ body, html {
 }
 
 .answer:active {
-  border-bottom: 3px solid black;
-  border-right: 3px solid black;
+  border-bottom: 3px solid grey;
+  border-right: 3px solid grey;
   border-top: 1px solid grey;
   border-left: 1px solid grey;
 }
@@ -61,7 +61,6 @@ img {
 
 #head-view {
   font-family: 'Josefin Sans', sans-serif;
-  /* background-color: rebeccapurple; */
   margin: 0;
 }
 
@@ -105,18 +104,18 @@ button:hover {
   cursor: pointer;
 }
 
-.category-btn {
-  padding: 0.3em 0.5em;
-  margin: 1em;
-}
-
 #hint-btn {
   padding: 0.1em 0.3em;
   margin-bottom: 1em;
 }
 
 #next-btn {
-  padding: 0.5em 2em;
+  padding: 0.2em 1em;
+}
+
+.category-btn {
+  padding: 0.3em 0.5em;
+  margin: 1em;
 }
 
 table {
