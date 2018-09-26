@@ -1,16 +1,18 @@
 const PubSub = require('../helpers/pub_sub.js');
-const Request = require('../helpers/pub_sub.js');
+const Request = require('../helpers/request.js');
 const Chart = require('chart.js');
 
-const FinalView = function (element) {
-  this.element = element
+const FinalView = function (headElement, bodyElement) {
+  this.head = headElement;
+  this.body = bodyElement;
 }
 
 FinalView.prototype.bindEvents = function(){
   PubSub.subscribe('ResultView:last-question-answered', (event) => {
-    this.element.innerHTML = '';
-    console.log(event.detail);
-    // this.renderPie(event.detail);
+    this.head.innerHTML = '';
+    this.body.innerHTML = '';
+    this.renderPie(event.detail.counter);
+    this.postProgress(event.detail.counter, event.detail.category);
   })
 }
 
@@ -19,9 +21,7 @@ FinalView.prototype.renderPie = function (counter) {
 
 const canvas = document.createElement('canvas');
 canvas.id = 'progress-chart';
-// canvas.style.height = '100px';
-// canvas.style.width = '100px';
-this.element.appendChild(canvas);
+this.body.appendChild(canvas);
 
 const ctx = document.getElementById("progress-chart");
 const arrayRightWrong = [];
@@ -37,15 +37,18 @@ const myChart = new Chart(ctx, {
       borderWidth: 1
     }],
   },
-  options: {}
+  options: {
+    legend: {
+           display: false
+        }
+  }
 })
 };
 
-FinalView.prototype.postProgress = function () {
+FinalView.prototype.postProgress = function (counter, category) {
 
       const requestH = new Request('http://localhost:3000/api/history');
-      const historyObj = {category: '', results: this.counter}
-      // need to pass in category from previous view
+      const historyObj = {category: category, results: counter}
             requestH.post(historyObj);
             console.log(historyObj);
 };

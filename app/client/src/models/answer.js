@@ -4,11 +4,13 @@ const Request = require('../helpers/request.js');
 const Answer = function () {
   this.counter = [];
   this.category = null;
+  this.word = null;
 };
 
 Answer.prototype.bindEvents = function () {
   PubSub.subscribe('ResponseView:answer-selected', (event) => {
     this.category = event.detail.category;
+    this.word = event.detail.word;
     if( event.detail.value !== undefined ){
       this.checkAnswer(event.detail);
     };
@@ -24,20 +26,21 @@ Answer.prototype.checkAnswer = function (answer) {
     });
 
     const result = {
+      category: this.category,
       correctAnswerObj: correctAnswer,
-      userCorrect: null,
       counter: null,
-      category: this.category
+      userCorrect: null,
+      word: this.word
     };
 
     if (userGuess === correctAnswer.answer) {
       result.correct = true;
       this.counter.push(1);
-      console.log('Correct!');
+      // console.log('Correct!');
     } else {
       result.correct = false;
       this.counter.push(0);
-      console.log('Incorrect :(');
+      // console.log('Incorrect :(');
     };
     this.progressBar();
     result.counter = this.counter;

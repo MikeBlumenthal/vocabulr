@@ -6,30 +6,23 @@ const router = function(collection) {
 
   r.get('/', (req, res) => { // INDEX
     collection
-      .find()
-      .toArray()
-      .then((info) => res.json(info))
+    .find()
+    .toArray()
+    .then((info) => res.json(info))
   });
 
   r.get('/:id', (req, res) => { // SHOW
     const id = req.params.id;
     collection
-      .find({ _id: ObjectID(id) })
-      .toArray()
-      .then((info) => res.json(info))
+    .find({ _id: ObjectID(id) })
+    .toArray()
+    .then((info) => res.json(info))
   });
 
   r.post('/', (req, res) => { // CREATE
-    const newItem = req.body;
+    const obj = req.body;
     collection
-      .insertOne(newItem)
-      .then(() => {
-        // collection
-        //   .find()
-        //   .toArray()
-        //   .then((info) => res.json(info))
-        console.log('Item posted.')
-      })
+    .insertOne(obj);
   });
 
   return r;

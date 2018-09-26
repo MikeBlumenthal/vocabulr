@@ -1,37 +1,70 @@
 const PubSub = require('../helpers/pub_sub.js');
-const AnswerView = require('./answer_view.js');
 const Randomiser = require('../helpers/randomiser.js')
+const QuestionView = require('./question_view.js');
+const AnswerView = require('./answer_view.js');
 const HintView = require('./hint_view.js');
 
-const ResponseView = function(element){
-  this.element = element;
+const ResponseView = function(headElement, bodyElement ){
+  this.head = headElement;
+  this.body = bodyElement;
 }
 
 ResponseView.prototype.bindEvents = function () {
+
   PubSub.subscribe('Question:first-question-ready', (event) => {
-    this.createAnswers(event.detail);
+    this.clear();
+    this.createQuestion(event.detail.question.word);
+    this.createAnswers(event.detail.question);
+    this.createHint();
   });
+
   PubSub.subscribe('Question:next-one-ready', (event) => {
+    this.clear();
+    this.createQuestion(event.detail.word);
     this.createAnswers(event.detail);
+    this.createHint();
   });
-  this.element.addEventListener('click', (event) => {
-    if( (event.target.id !== 'next-question') && (event.target.id !== 'result') ){
+
+  this.body.addEventListener('click', (event) => {
+    if( (event.target.id !== 'next-btn') && (event.target.id !== 'result') ){
       PubSub.publish('ResponseView:answer-selected', event.target);
     }
   })
 };
 
-ResponseView.prototype.createAnswers = function (answers) {
-  this.element.innerHTML = '';
-  const answerArray = answers.answers;
+
+ResponseView.prototype.clear = function () {
+  this.head.innerHTML = '';
+  this.body.innerHTML = '';
+};
+
+
+ResponseView.prototype.createQuestion = function (word) {
+  const questionView = new QuestionView(this.head);
+  questionView.createQuestion(word);
+};
+
+
+ResponseView.prototype.createAnswers = function (obj) {
+  const category = obj.category;
+  const id = obj._id;
+  const word = obj.word
+
+  const answerArray = obj.answers;
   Randomiser.randomise(answerArray);
-  const id = answers._id;
 
   answerArray.forEach((answer) => {
+
+    answer.word = word;
     answer.id = id;
-    const answerView = new AnswerView(this.element);
+    answer.category = category;
+    const answerView = new AnswerView(this.body);
     answerView.render(answer);
   });
+};
+
+
+ResponseView.prototype.createHint = function () {
 
   const hintBtn = document.createElement('button');
   hintBtn.id = 'hint-btn';
@@ -39,8 +72,9 @@ ResponseView.prototype.createAnswers = function (answers) {
   hintBtn.type = 'submit';
 
   const hintView = new HintView();
-  this.element.appendChild(hintBtn);
+  this.body.appendChild(hintBtn);
   hintView.bindEvents();
 };
+
 
 module.exports = ResponseView;

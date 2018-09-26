@@ -26,7 +26,11 @@ Question.prototype.bindEvents = function () {
     this.questions = this.data.filter(question => question.category === category);
     Randomiser.randomise(this.questions);
     const firstQuestion = this.getOneQuestion();
-    PubSub.publish('Question:first-question-ready', firstQuestion);
+    const payload = {
+      category: category,
+      question: firstQuestion
+    };
+    PubSub.publish('Question:first-question-ready', payload);
   })
 }
 

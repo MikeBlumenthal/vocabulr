@@ -11,22 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const headViewTarget = document.querySelector('#head-view');
   const bodyViewTarget = document.querySelector('#body-view');
 
-  const questionView = new QuestionView(headViewTarget);
-  questionView.bindEvents();
-
-  const responseView = new ResponseView(bodyViewTarget);
+  const responseView = new ResponseView(headViewTarget, bodyViewTarget);
   responseView.bindEvents();
 
   const categoryView = new CategoryView(headViewTarget);
   categoryView.bindEvents();
 
-  const resultView = new ResultView(bodyViewTarget);
+  const resultView = new ResultView(headViewTarget, bodyViewTarget);
   resultView.bindEvents();
 
-  const finalView = new FinalView(bodyViewTarget);
+  const finalView = new FinalView(headViewTarget, bodyViewTarget);
   finalView.bindEvents();
 
-  const answer = new Answer(bodyViewTarget);
+  const answer = new Answer();
   answer.bindEvents();
 
   const questions = new Question();
