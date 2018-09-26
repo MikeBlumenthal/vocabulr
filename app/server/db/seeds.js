@@ -289,7 +289,7 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'pig',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/pig-face_1f437.png'
       },
       {
@@ -299,7 +299,7 @@ db.questions.insertMany([
       },
       {
         answer: 'snake',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/emojione/151/snake_1f40d.png'
       }
     ]
@@ -311,17 +311,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'snake',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/emojione/151/snake_1f40d.png'
       },
       {
         answer: 'shark',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/shark_1f988.png'
       },
       {
         answer: 'squid',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/emojione/151/squid_1f991.png'
       }
     ]
@@ -333,17 +333,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'shark',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/shark_1f988.png'
       },
       {
         answer: 'fish',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/fish_1f41f.png'
       },
       {
         answer: 'squid',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/emojione/151/squid_1f991.png'
       }
     ]
@@ -355,17 +355,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'turkey',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/turkey_1f983.png'
       },
       {
         answer: 'chicken',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/chicken_1f414.png'
       },
       {
         answer: 'rooster',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/rooster_1f413.png'
       }
     ]
@@ -377,17 +377,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'cat',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/cat_1f408.png'
       },
       {
         answer: 'dog',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/dog_1f415.png'
       },
       {
         answer: 'turtle',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/emojione/151/turtle_1f422.png'
       }
     ]
@@ -399,17 +399,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'turtle',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/emojione/151/turtle_1f422.png'
       },
       {
         answer: 'shark',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/shark_1f988.png'
       },
       {
         answer: 'snail',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/snail_1f40c.png'
       }
     ]
@@ -421,17 +421,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'snail',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/snail_1f40c.png'
       },
       {
         answer: 'snake',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/emojione/151/snake_1f40d.png'
       },
       {
         answer: 'squid',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/emojione/151/squid_1f991.png'
       }
     ]
@@ -443,17 +443,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'octopus',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/octopus_1f419.png'
       },
       {
         answer: 'fish',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/fish_1f41f.png'
       },
       {
         answer: 'shark',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/shark_1f988.png'
       }
     ]
@@ -465,17 +465,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'cow',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/cow_1f404.png'
       },
       {
         answer: 'koala',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/koala_1f428.png'
       },
       {
         answer: 'crocodile',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/crocodile_1f40a.png'
       }
     ]
@@ -487,17 +487,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'lizard',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/lizard_1f98e.png'
       },
       {
         answer: 'horse',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/horse_1f40e.png'
       },
       {
         answer: 'giraffe',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/giraffe-face_1f992.png'
       }
     ]
@@ -511,17 +511,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'cycling',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/bicyclist_1f6b4.png'
       },
       {
         answer: 'wrestling',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/wrestlers_1f93c.png'
       },
       {
         answer: 'tennis',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/tennis-racquet-and-ball_1f3be.png'
       }
     ]
@@ -533,17 +533,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'swimming',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/man-swimming_1f3ca-200d-2642-fe0f.png'
       },
       {
         answer: 'surfing',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/man-surfing_1f3c4-200d-2642-fe0f.png'
       },
       {
         answer: 'climbing',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/person-climbing_1f9d7.png'
       }
     ]
@@ -555,17 +555,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'climbing',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/person-climbing_1f9d7.png'
       },
       {
         answer: 'surfing',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/man-surfing_1f3c4-200d-2642-fe0f.png'
       },
       {
         answer: 'golf',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/man-golfing_1f3cc-fe0f-200d-2642-fe0f.png'
       }
     ]
@@ -577,17 +577,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'surfing',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/man-surfing_1f3c4-200d-2642-fe0f.png'
       },
       {
         answer: 'swimming',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/man-swimming_1f3ca-200d-2642-fe0f.png'
       },
       {
         answer: 'golf',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/man-golfing_1f3cc-fe0f-200d-2642-fe0f.png'
       }
     ]
@@ -599,17 +599,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'football',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/soccer-ball_26bd.png'
       },
       {
         answer: 'rugby',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/rugby-football_1f3c9.png'
       },
       {
         answer: 'tennis',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/tennis-racquet-and-ball_1f3be.png'
       }
     ]
@@ -621,17 +621,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'skiing',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/skier_26f7.png'
       },
       {
         answer: 'snowboarding',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/snowboarder_1f3c2.png'
       },
       {
         answer: 'surfing',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/man-surfing_1f3c4-200d-2642-fe0f.png'
       }
     ]
@@ -643,17 +643,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'weightlifting',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/man-weight-lifting_1f3cb-fe0f-200d-2642-fe0f.png'
       },
       {
         answer: 'golf',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/man-golfing_1f3cc-fe0f-200d-2642-fe0f.png'
       },
       {
         answer: 'cycling',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/bicyclist_1f6b4.png'
       }
     ]
@@ -665,17 +665,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'water polo',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/water-polo_1f93d.png'
       },
       {
         answer: 'surfing',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/man-surfing_1f3c4-200d-2642-fe0f.png'
       },
       {
         answer: 'cycling',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/bicyclist_1f6b4.png'
       }
     ]
@@ -687,17 +687,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'horse riding',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/horse-racing_1f3c7.png'
       },
       {
         answer: 'surfing',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/man-surfing_1f3c4-200d-2642-fe0f.png'
       },
       {
         answer: 'mountain biking',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/man-mountain-biking_1f6b5-200d-2642-fe0f.png'
       }
     ]
@@ -711,17 +711,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'scotland',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-scotland_1f3f4-e0067-e0062-e0073-e0063-e0074-e007f.png'
       },
       {
         answer: 'switzerland',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-switzerland_1f1e8-1f1ed.png'
       },
       {
         answer: 'sweden',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-sweden_1f1f8-1f1ea.png'
       }
     ]
@@ -733,17 +733,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'switzerland',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-switzerland_1f1e8-1f1ed.png'
       },
       {
         answer: 'sweden',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-sweden_1f1f8-1f1ea.png'
       },
       {
         answer: 'scotland',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-scotland_1f3f4-e0067-e0062-e0073-e0063-e0074-e007f.png'
       }
     ]
@@ -755,17 +755,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'new zealand',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-new-zealand_1f1f3-1f1ff.png'
       },
       {
         answer: 'switzerland',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-switzerland_1f1e8-1f1ed.png'
       },
       {
         answer: 'scotland',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-scotland_1f3f4-e0067-e0062-e0073-e0063-e0074-e007f.png'
       }
     ]
@@ -777,17 +777,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'romania',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-romania_1f1f7-1f1f4.png'
       },
       {
         answer: 'rwanda',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-rwanda_1f1f7-1f1fc.png'
       },
       {
         answer: 'russia',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-russia_1f1f7-1f1fa.png'
       }
     ]
@@ -799,17 +799,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'poland',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-poland_1f1f5-1f1f1.png'
       },
       {
         answer: 'papua new guinea',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-papua-new-guinea_1f1f5-1f1ec.png'
       },
       {
         answer: 'pakistan',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-pakistan_1f1f5-1f1f0.png'
       }
     ]
@@ -821,17 +821,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'croatia',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-croatia_1f1ed-1f1f7.png'
       },
       {
         answer: 'congo',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-congo-brazzaville_1f1e8-1f1ec.png'
       },
       {
         answer: 'canada',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-canada_1f1e8-1f1e6.png'
       }
     ]
@@ -843,17 +843,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'canada',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-canada_1f1e8-1f1e6.png'
       },
       {
         answer: 'croatia',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-croatia_1f1ed-1f1f7.png'
       },
       {
         answer: 'congo',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-congo-brazzaville_1f1e8-1f1ec.png'
       }
     ]
@@ -867,17 +867,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'gem',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/gem-stone_1f48e.png'
       },
       {
         answer: 'joystick',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/joystick_1f579.png'
       },
       {
         answer: 'balloon',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/balloon_1f388.png'
       }
     ]
@@ -889,17 +889,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'balloon',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/balloon_1f388.png'
       },
       {
         answer: 'bomb',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/bomb_1f4a3.png'
       },
       {
         answer: 'ribbon',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/ribbon_1f380.png'
       }
     ]
@@ -911,17 +911,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'bomb',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/bomb_1f4a3.png'
       },
       {
         answer: 'balloon',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/balloon_1f388.png'
       },
       {
         answer: 'ribbon',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/ribbon_1f380.png'
       }
     ]
@@ -933,17 +933,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'ribbon',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/ribbon_1f380.png'
       },
       {
         answer: 'balloon',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/balloon_1f388.png'
       },
       {
         answer: 'watch',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/watch_231a.png'
       }
     ]
@@ -955,17 +955,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'watch',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/watch_231a.png'
       },
       {
         answer: 'clock',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/mantelpiece-clock_1f570.png'
       },
       {
         answer: 'ribbon',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/ribbon_1f380.png'
       }
     ]
@@ -977,17 +977,17 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'lightbulb',
-        correct: 'true',
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/electric-light-bulb_1f4a1.png'
       },
       {
         answer: 'camera',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/camera_1f4f7.png'
       },
       {
         answer: 'candle',
-        correct: 'false',
+        correct: false,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/facebook/138/candle_1f56f.png'
       }
     ]

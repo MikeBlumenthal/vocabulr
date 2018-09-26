@@ -2,18 +2,21 @@ const PubSub = require('../helpers/pub_sub.js');
 const Request = require('../helpers/request.js');
 const Chart = require('chart.js');
 
+
 const FinalView = function (headElement, bodyElement) {
   this.head = headElement;
   this.body = bodyElement;
+  this.history = null;
+  this.request = new Request('http://localhost:3000/api/history/');
 }
 
 FinalView.prototype.bindEvents = function(){
   PubSub.subscribe('ResultView:result', (event) => {
     this.head.innerHTML = '';
     this.body.innerHTML = '';
-    console.log(event);
     this.renderPie(event.detail.counter);
     this.postProgress(event.detail.counter, event.detail.category);
+    this.getHistory();
   })
 }
 
@@ -46,12 +49,32 @@ FinalView.prototype.renderPie = function (counter) {
   })
 };
 
+
 FinalView.prototype.postProgress = function (counter, category) {
 
-  const requestH = new Request('http://localhost:3000/api/history');
-  const historyObj = {category: category, results: counter}
-  requestH.post(historyObj);
-  console.log(historyObj);
+  const historyObj = {
+    category: category,
+    results: counter
+  };
+  this.request.post(historyObj);
+  console.log('Post attempted.');
+};
+
+
+FinalView.prototype.getHistory = function () {
+  this.request.get()
+  .then((response) => {
+    this.history = response;
+    this.dateHistory();
+  })
+}
+
+FinalView.prototype.dateHistory = function () {
+  this.history.forEach( (obj) => {
+    const date = ObjectID(obj._id).getTimeStamp();
+    obj.date = date;
+  })
+  console.log(this.history);
 };
 
 FinalView.prototype.renderGraph = function () {

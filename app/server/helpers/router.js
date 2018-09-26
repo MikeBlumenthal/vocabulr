@@ -22,7 +22,8 @@ const router = function(collection) {
   r.post('/', (req, res) => { // CREATE
     const obj = req.body;
     collection
-    .insertOne(obj);
+    .insertOne(obj)
+    .then((info) => res.json(info))
   });
 
   return r;

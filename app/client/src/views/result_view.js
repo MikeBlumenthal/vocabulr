@@ -23,6 +23,7 @@ ResultView.prototype.bindEvents = function () {
 )
 };
 
+
 ResultView.prototype.createDisplay = function (data, buttonID, buttonText) {
   this.header(data);
   this.render(data.correctAnswerObj);
@@ -37,24 +38,24 @@ ResultView.prototype.createDisplay = function (data, buttonID, buttonText) {
 };
 
 
-
 ResultView.prototype.header = function (data) {
   const header = document.createElement('h2');
-  const audioPath = 'audio/buzzers/';
   if (data.correct) {
-    const fileName = 'success.mp3';
-    var audio = new Audio(audioPath + fileName);
-    audio.volume = 0.5;
-    audio.play();
+    this.addAudio('success.mp3');
     header.textContent = `That's right!`;
   } else {
-    const fileName = 'wrong.mp3';
-    var audio = new Audio(audioPath + fileName);
-    audio.volume = 0.5;
-    audio.play();
+    this.addAudio('wrong.mp3');
     header.textContent = 'Not quite!';
   };
   this.head.appendChild(header);
+};
+
+
+ResultView.prototype.addAudio = function (filename) {
+  const audioPath = `audio/buzzers/${filename}`;
+  const audio = new Audio(audioPath);
+  audio.volume = 0.1;
+  audio.play();
 };
 
 
@@ -79,9 +80,11 @@ ResultView.prototype.render = function (answerObj) {
   this.body.appendChild(correctDiv);
 };
 
+
 ResultView.prototype.tidyQuestion = function (word) {
   const questionView = new QuestionView(this.body);
   questionView.justWord(word);
 };
+
 
 module.exports = ResultView;

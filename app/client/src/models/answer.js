@@ -36,11 +36,9 @@ Answer.prototype.checkAnswer = function (answer) {
     if (userGuess === correctAnswer.answer) {
       result.correct = true;
       this.counter.push(1);
-      // console.log('Correct!');
     } else {
       result.correct = false;
       this.counter.push(0);
-      // console.log('Incorrect :(');
     };
     this.progressBar();
     result.counter = this.counter;

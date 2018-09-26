@@ -22,7 +22,7 @@ MongoClient.connect('mongodb://localhost:27017')
   })
   .catch((error) => {
     console.error('Failed to connect');
-    console.error(error)
+    console.error(error);
   });
 
 server.listen(3000, () => {
