@@ -8,9 +8,10 @@ const FinalView = function (headElement, bodyElement) {
 }
 
 FinalView.prototype.bindEvents = function(){
-  PubSub.subscribe('ResultView:last-question-answered', (event) => {
+  PubSub.subscribe('ResultView:result', (event) => {
     this.head.innerHTML = '';
     this.body.innerHTML = '';
+    console.log(event);
     this.renderPie(event.detail.counter);
     this.postProgress(event.detail.counter, event.detail.category);
   })

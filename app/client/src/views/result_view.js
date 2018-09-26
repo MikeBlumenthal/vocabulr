@@ -14,42 +14,44 @@ ResultView.prototype.bindEvents = function () {
     this.body.innerHTML = '';
     this.tidyQuestion(event.detail.word);
 
-
-
     if (event.detail.counter.length < 6){
-      this.render(event.detail.correctAnswerObj);
-      this.header(event);
-      const nextButton = document.createElement('button');
-      nextButton.id = 'next-btn';
-      nextButton.textContent = "Next question!";
-      this.body.appendChild(nextButton);
-      nextButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        PubSub.publish('ResultView:next-question', 1);
-      })
+      this.createDisplay(event.detail, 'next-btn', 'Another word!');
     } else {
-      this.render(event.detail.correctAnswerObj);
-      this.header(event);
-      const resultButton = document.createElement('button');
-      resultButton.id = 'result';
-      resultButton.textContent = "RESULTS!";
-      this.body.appendChild(resultButton);
-      const results = event.detail;
-      resultButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        PubSub.publish('ResultView:last-question-answered', results)
-      })
-
+      this.createDisplay(event.detail, 'result', 'Your results!');
     }
   }
 )
 };
 
-ResultView.prototype.header = function (event) {
+ResultView.prototype.createDisplay = function (data, buttonID, buttonText) {
+  this.header(data);
+  this.render(data.correctAnswerObj);
+  const button = document.createElement('button');
+  button.id = buttonID;
+  button.textContent = buttonText;
+  this.body.appendChild(button);
+  button.addEventListener('click', (event) => {
+    event.preventDefault();
+    PubSub.publish(`ResultView:${buttonID}`, data)
+  })
+};
+
+
+
+ResultView.prototype.header = function (data) {
   const header = document.createElement('h2');
-  if (event.detail.correct) {
+  const audioPath = 'audio/buzzers/';
+  if (data.correct) {
+    const fileName = 'success.mp3';
+    var audio = new Audio(audioPath + fileName);
+    audio.volume = 0.5;
+    audio.play();
     header.textContent = `That's right!`;
   } else {
+    const fileName = 'wrong.mp3';
+    var audio = new Audio(audioPath + fileName);
+    audio.volume = 0.5;
+    audio.play();
     header.textContent = 'Not quite!';
   };
   this.head.appendChild(header);

@@ -17,7 +17,7 @@ Question.prototype.getData = function () {
 };
 
 Question.prototype.bindEvents = function () {
-  PubSub.subscribe('ResultView:next-question', (event) => {
+  PubSub.subscribe('ResultView:next-btn', (event) => {
     const nextQuestion = this.getOneQuestion();
     PubSub.publish('Question:next-one-ready', nextQuestion);
   })
