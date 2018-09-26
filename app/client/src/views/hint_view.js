@@ -8,7 +8,7 @@ HintView.prototype.bindEvents = function () {
   const hintBtn = document.querySelector('#hint-btn');
   hintBtn.addEventListener('click', () => {
     hintBtn.disabled = true;
-    hintBtn.textContent = 'Hint used';
+    hintBtn.style.backgroundColor = 'grey';
     this.giveHint();
   });
 };
@@ -23,7 +23,7 @@ HintView.prototype.giveHint = function () {
       });
 
       const hideAnswer = document.querySelector(`.answer[value="${incorrectAnswer.answer}"]`)
-      hideAnswer.style.visibility = 'hidden';
+      hideAnswer.setAttribute('style', 'opacity:0;transition:opacity 0.5s linear;*')
     });
 };
 

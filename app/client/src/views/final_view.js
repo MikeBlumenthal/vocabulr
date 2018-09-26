@@ -33,8 +33,7 @@ const myChart = new Chart(ctx, {
     labels: ["Correct", "Incorrect"],
     datasets: [{
       data: arrayRightWrong,
-      backgroundColor: ['green', 'red'],
-      borderColor: ['darkgreen', 'crimson'],
+      backgroundColor: ['#65ab00', '#f24f4f'],
       borderWidth: 1
     }],
   },

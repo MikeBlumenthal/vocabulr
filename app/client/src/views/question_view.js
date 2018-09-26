@@ -19,18 +19,19 @@ QuestionView.prototype.bindEvents = function () {
 QuestionView.prototype.createQuestion = function (word) {
   this.element.innerHTML = '';
   const questionTitle = document.createElement('h3');
-  questionTitle.textContent = 'What does this mean?';
+  questionTitle.textContent = 'What is the word for...';
+  questionTitle.id = 'question-title'
   this.element.appendChild(questionTitle);
 
   const questionWord = document.createElement('h2');
-  questionWord.textContent = word;
+  questionWord.textContent = word + '?';
   questionWord.id = 'question-word';
   this.element.appendChild(questionWord);
 
   const questionWordEl = document.querySelector('#question-word');
   questionWordEl.addEventListener('click', (event) => {
     const audioPath = 'audio/'
-    const fileName = event.target.innerText.toLowerCase().replace(' ', '_') + '.mp3'
+    const fileName = event.target.innerText.toLowerCase().replace(' ', '_').replace('?', '') + '.mp3'
 
     var audio = new Audio(audioPath + fileName);
     audio.play();

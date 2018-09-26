@@ -18,7 +18,7 @@ ResultView.prototype.bindEvents = function () {
 
     if (event.detail.counter.length < 6){
       const nextButton = document.createElement('button');
-      nextButton.id = 'next-question';
+      nextButton.id = 'next-btn';
       nextButton.textContent = "Next question!";
       this.element.appendChild(nextButton);
       nextButton.addEventListener('click', (event) => {

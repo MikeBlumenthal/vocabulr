@@ -50,12 +50,11 @@ Answer.prototype.progressBar = function () {
   let resultCopy = this.counter.map(x => x);
   let result = resultCopy.pop();
   if (result === 1){
-    targetBox.setAttribute('style', 'background-color: green');
+    targetBox.setAttribute('style', 'background-color: #65ab00;transition: background-color 0.5s linear;');
   }else{
-    targetBox.setAttribute('style', 'background-color: red');
+    targetBox.setAttribute('style', 'background-color: #f24f4f;transition: background-color 0.5s linear;');
   }
 };
-
 
 
 module.exports = Answer;

@@ -2,37 +2,51 @@ body, html {
   text-align: center;
   margin: 0;
   width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.5em;
+  color: #3c3c3c;
+}
+
+#progress-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:70% !important;
+  height:70% !important;
 }
 
 #progress-bar {
   display: flex;
   align-items: center;
-  justify-content: center
-}
-
-#progress-chart {
-  width: 500px;
-  height: 500px;
+  justify-content: center;
 }
 
 .answer {
-  border-bottom: 5px solid grey;
-  border-right: 5px solid grey;
+  border: 1px solid grey;
+  border-radius: 10px;
   display: inline-block;
   margin: 2em;
   padding: 1em;
   text-align: center;
+  vertical-align: middle;
   text-transform: capitalize;
+  width: 6.5em;
+  height: 6.5em;
 }
 
 .answer:active {
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
-  border-top: 4px solid grey;
-  border-left: 4px solid grey;
+  border-bottom: 3px solid grey;
+  border-right: 3px solid grey;
+  border-top: 1px solid grey;
+  border-left: 1px solid grey;
 }
 
 .answer:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform .2s;
   cursor: pointer;
 }
 
@@ -41,22 +55,32 @@ img {
   height: 100px;
 }
 
-#body-view{
-  background-color: pink;
+#body-view {
+  /* background-color: pink; */
 }
 
-#head-view{
-  background-color: rebeccapurple;
+#head-view {
+  font-family: 'Josefin Sans', sans-serif;
   margin: 0;
 }
 
-#question-word{
-  width: 15%;
+#question-title {
+  margin-bottom: -0.1em;
+}
+
+#question-word {
+  font-family: 'Amatic SC', cursive;
+  color: #FA7921;
+  width: 35%;
   display: block;
   margin: 0 auto;
+  font-size: 2.5em;
+  margin-bottom: -0.5em;
 }
 
 #question-word:hover {
+  transform: scale(1.3);
+  transition: transform .2s;
   cursor: url('../images/speaker.png'), auto;
 }
 
@@ -65,16 +89,43 @@ img {
   margin: 0 auto;
 }
 
+button {
+  font-family: 'Amatic SC', cursive;
+  background-color: #65ab00;
+  color: white;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+  font-size: 2em;
+}
+
+button:hover {
+  background-color: #8ad027;
+  color: white;
+  cursor: pointer;
+}
+
+#hint-btn {
+  padding: 0.1em 0.3em;
+  margin-bottom: 1em;
+}
+
+#next-btn {
+  padding: 0.2em 1em;
+}
+
+.category-btn {
+  padding: 0.3em 0.5em;
+  margin: 1em;
+}
+
 table {
-  border: 1px solid black;
-  width: 30%;
+  border: none;
+  border-collapse:collapse;
+  width: 100%;
   background-color: black;
 }
 
 th {
-  background-color: white;
-  border: 1px solid black;
-  width: 1fr;
-  height: 1em;
-  padding: .25em;
+  background-color: #f7f7f7;
+  height: 3px;
 }
