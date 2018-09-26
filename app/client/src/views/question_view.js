@@ -5,40 +5,31 @@ const QuestionView = function(element){
 };
 
 QuestionView.prototype.createQuestion = function (word) {
-  const questionTitle = document.createElement('h3');
-  questionTitle.textContent = 'What is the word for...';
+  const questionTitle = document.createElement('h2');
+  questionTitle.textContent = 'What do I mean?';
   questionTitle.id = 'question-title'
   this.element.appendChild(questionTitle);
+  this.justWord(word);
+  };
 
-  const questionWord = document.createElement('h2');
-  questionWord.textContent = word + '?';
-  questionWord.id = 'question-word';
-  this.element.appendChild(questionWord);
-
-  const questionWordEl = document.querySelector('#question-word');
-  questionWordEl.addEventListener('click', (event) => {
-    const audioPath = 'audio/'
-    const fileName = event.target.innerText.toLowerCase().replace(' ', '_').replace('?', '') + '.mp3'
-
-    var audio = new Audio(audioPath + fileName);
-    audio.play();
-  });
-};
 
 QuestionView.prototype.justWord = function (word) {
   const questionWord = document.createElement('h2');
   questionWord.textContent = word;
   questionWord.id = 'question-word';
   this.element.appendChild(questionWord);
+  this.addAudio();
+};
 
+
+QuestionView.prototype.addAudio = function () {
   const questionWordEl = document.querySelector('#question-word');
   questionWordEl.addEventListener('click', (event) => {
-    const audioPath = 'audio/'
-    const fileName = event.target.innerText.toLowerCase().replace(' ', '_').replace('?', '') + '.mp3'
-
-    var audio = new Audio(audioPath + fileName);
+    const audioPath = 'audio/';
+    const fileName = event.target.innerText.toLowerCase().replace(' ', '_') + '.mp3';
+    const audio = new Audio(audioPath + fileName);
     audio.play();
-  });
+  })
 };
 
 module.exports = QuestionView;
