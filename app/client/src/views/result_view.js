@@ -8,9 +8,16 @@ ResultView.prototype.bindEvents = function () {
   PubSub.subscribe('Answer:answer-selected', (event) => {
     this.element.innerHTML = '';
     const header = document.createElement('h2');
+    const audioPath = 'audio/buzzers/'
     if (event.detail.correct) {
+      const fileName = 'success.mp3'
+      var audio = new Audio(audioPath + fileName);
+      audio.play();
       header.textContent = 'You were correct!';
     } else {
+      const fileName = 'wrong.mp3'
+      var audio = new Audio(audioPath + fileName);
+      audio.play();
       header.textContent = 'Sorry! That is incorrect';
     };
     this.element.appendChild(header);
