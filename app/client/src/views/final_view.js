@@ -7,6 +7,7 @@ const FinalView = function (headElement, bodyElement) {
   this.head = headElement;
   this.body = bodyElement;
   this.history = null;
+  this.categories = null;
   this.request = new Request('http://localhost:3000/api/history/');
 }
 
@@ -65,20 +66,74 @@ FinalView.prototype.getHistory = function () {
   this.request.get()
   .then((response) => {
     this.history = response;
-    this.dateHistory();
+    this.getDatasets();
   })
 }
 
-FinalView.prototype.dateHistory = function () {
-  this.history.forEach( (obj) => {
-    const date = ObjectID(obj._id).getTimeStamp();
-    obj.date = date;
+//
+// FinalView.prototype.dateFromObjectId = function (id) {
+//   return new Date(parseInt(id.substring(0, 8), 16) * 1000);
+// };
+
+
+// FinalView.prototype.dateHistory = function () {
+//   this.history.forEach( (obj) => {
+//     const date = this.dateFromObjectId(obj._id);
+//     obj.date = date;
+//   })
+// };
+
+FinalView.prototype.getDatasets = function () {
+
+  this.categories = this.history
+  .map( (obj) => obj.category )
+  .filter((value, index, array) => array.indexOf(value) === index);
+
+  const data = [];
+  this.categories.forEach( (category) => {
+    const obj = {
+      cat: category
+    };
+    const array = this.history
+    .filter(obj => obj.category === category);
+
+    const array2 = array
+    .map( (obj) => obj.results
+    .reduce( (a,b) => a + b) );
+    obj.scores = array2;
+    data.push(obj);
   })
-  console.log(this.history);
+  console.log(this.categories);
+  console.log(data);
+  this.renderGraph(data);
 };
 
-FinalView.prototype.renderGraph = function () {
+FinalView.prototype.renderGraph = function (data) {
 
+
+    const canvas = document.createElement('canvas');
+    canvas.id = 'history-chart';
+    this.body.appendChild(canvas);
+
+    const ctx = document.getElementById("history-chart");
+
+    const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [1,2,3,4,5,6,7,8,9,10],
+        datasets: [
+          {
+          borderColor: '#BC4B51',
+          borderWidth: 7,
+          label: this.categories[0],
+          data: data[0].scores,
+          fill: false,
+          pointStyle: 'circle',
+          spanGaps: false
+        }],
+      },
+      options: {}
+    })
 };
 
 module.exports = FinalView;

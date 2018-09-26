@@ -311,7 +311,7 @@ db.questions.insertMany([
     answers: [
       {
         answer: 'snake',
-        correct: false,
+        correct: true,
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/emojione/151/snake_1f40d.png'
       },
       {
@@ -696,9 +696,9 @@ db.questions.insertMany([
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/man-surfing_1f3c4-200d-2642-fe0f.png'
       },
       {
-        answer: 'mountain biking',
+        answer: 'cycling',
         correct: false,
-        image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/man-mountain-biking_1f6b5-200d-2642-fe0f.png'
+        image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/bicyclist_1f6b4.png'
       }
     ]
   },
@@ -803,9 +803,9 @@ db.questions.insertMany([
         image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-poland_1f1f5-1f1f1.png'
       },
       {
-        answer: 'papua new guinea',
+        answer: 'congo',
         correct: false,
-        image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-papua-new-guinea_1f1f5-1f1ec.png'
+        image: 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/154/flag-for-congo-brazzaville_1f1e8-1f1ec.png'
       },
       {
         answer: 'pakistan',
@@ -999,12 +999,76 @@ db.history.insertMany(
   [
     {
       category: 'animals',
-      results: [0,1,1,1,1,1]
+      results: [0,0,0,0,0,1]
     },
 
     {
       category: 'fruit',
-      results: [1,0,0,1,1,1]
+      results: [1,0,0,0,0,1]
+    },
+    {
+      category: 'animals',
+      results: [0,0,0,1,1,1]
+    },
+    {
+      category: 'animals',
+      results: [0,0,1,1,1,0]
+    },
+    {
+      category: 'miscellaneous',
+      results: [0,0,0,1,1,0]
+    },
+    {
+      category: 'fruit',
+      results: [0,1,1,1,1,1]
+    },
+    {
+      category: 'fruit',
+      results: [0,0,1,1,1,1]
+    },
+    {
+      category: 'fruit',
+      results: [1,1,1,1,1,1]
+    },
+    {
+      category: 'fruit',
+      results: [0,1,1,1,1,1]
+    },
+    {
+      category: 'sports',
+      results: [0,0,0,0,1,1]
+    },
+    {
+      category: 'countries',
+      results: [0,1,1,1,1,1]
+    },
+    {
+      category: 'countries',
+      results: [0,1,1,1,1,1]
+    },
+    {
+      category: 'countries',
+      results: [0,1,0,0,1,1]
+    },
+    {
+      category: 'countries',
+      results: [0,1,1,1,1,1]
+    },
+    {
+      category: 'sports',
+      results: [0,1,0,1,1,1]
+    },
+    {
+      category: 'miscellaneous',
+      results: [0,1,0,1,1,1]
+    },
+    {
+      category: 'sports',
+      results: [0,1,0,1,1,1]
+    },
+    {
+      category: 'miscellaneous',
+      results: [0,1,1,1,1,1]
     }
   ]
 );

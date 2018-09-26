@@ -13,14 +13,8 @@ CategoryView.prototype.bindEvents = function () {
     for (question of allQuestions) {
       categoryArray.push(question.category);
     }
-
     this.categories = categoryArray.filter((value, index, array) => array.indexOf(value) === index);
     this.createCategoryOptions();
-
-    // function unique(value, index, array){
-    //   return array.indexOf(value) === index;
-    // }
-
   })
 };
 
