@@ -13,7 +13,7 @@ ResultView.prototype.bindEvents = function () {
     this.head.innerHTML = '';
     this.body.innerHTML = '';
     this.tidyQuestion(event.detail.word);
-    
+
 
 
     if (event.detail.counter.length < 6){
@@ -48,9 +48,9 @@ ResultView.prototype.bindEvents = function () {
 ResultView.prototype.header = function (event) {
   const header = document.createElement('h2');
   if (event.detail.correct) {
-    header.textContent = 'You were correct!';
+    header.textContent = `That's right!`;
   } else {
-    header.textContent = 'Sorry! That is incorrect';
+    header.textContent = 'Not quite!';
   };
   this.head.appendChild(header);
 };
@@ -64,7 +64,7 @@ ResultView.prototype.render = function (answerObj) {
   correctDiv.id = 'correct-result';
 
   const resultP = document.createElement('p');
-  resultP.textContent = `Means ${answerText}`;
+  resultP.textContent = `means ${answerText}`;
   resultP.id = 'correct-text';
 
   const img = document.createElement('img');

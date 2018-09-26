@@ -5,7 +5,7 @@ const QuestionView = function(element){
 
 QuestionView.prototype.createQuestion = function (word) {
   const questionTitle = document.createElement('h2');
-  questionTitle.textContent = 'What do I mean?';
+  questionTitle.textContent = 'What does this word mean?';
   questionTitle.id = 'question-title'
   this.element.appendChild(questionTitle);
   this.justWord(word);

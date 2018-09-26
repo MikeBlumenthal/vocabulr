@@ -17,14 +17,11 @@ HintView.prototype.giveHint = function () {
   const answerID = document.querySelector('.answer').id;
   const request = new Request('http://localhost:3000/api/questions');
   request.getOne(answerID)
-    .then((response) => {
-      const incorrectAnswer = response[0].answers.find((answer) => { // Change to filter to get multiple
-        return answer.correct === false;
-      });
-
-      const hideAnswer = document.querySelector(`.answer[value="${incorrectAnswer.answer}"]`)
-      hideAnswer.setAttribute('style', 'opacity:0;transition:opacity 0.5s linear;*')
-    });
+  .then((response) => {
+    const incorrectAnswer = response[0].answers.find( answer => answer.correct === false );
+    const hideAnswer = document.querySelector(`.answer[value="${incorrectAnswer.answer}"]`);
+    hideAnswer.setAttribute('style', 'opacity:0;transition:opacity 0.5s linear;*');
+  });
 };
 
 module.exports = HintView;

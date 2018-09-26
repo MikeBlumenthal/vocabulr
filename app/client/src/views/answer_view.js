@@ -22,9 +22,10 @@ AnswerView.prototype.render = function (answerObj) {
 };
 
 AnswerView.prototype.assignment = function (object, element, container) {
+  element.setAttribute('value', object.answer);
+  element.value = object.answer;
   element.category = object.category;
   element.id = object.id;
-  element.value = object.answer;
   element.word = object.word;
   container.appendChild(element);
 };

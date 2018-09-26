@@ -12,24 +12,25 @@ const ResponseView = function(headElement, bodyElement ){
 ResponseView.prototype.bindEvents = function () {
 
   PubSub.subscribe('Question:first-question-ready', (event) => {
-    this.clear();
-    this.createQuestion(event.detail.question.word);
-    this.createAnswers(event.detail.question);
-    this.createHint();
+    this.createDisplay(event.detail.question);
   });
 
   PubSub.subscribe('Question:next-one-ready', (event) => {
-    this.clear();
-    this.createQuestion(event.detail.word);
-    this.createAnswers(event.detail);
-    this.createHint();
+    this.createDisplay(event.detail);
   });
 
   this.body.addEventListener('click', (event) => {
-    if( (event.target.id !== 'next-btn') && (event.target.id !== 'result') ){
+    if( (event.target.id !== 'next-btn') && (event.target.id !== 'hint-btn') && (event.target.id !== 'result') ){
       PubSub.publish('ResponseView:answer-selected', event.target);
     }
   })
+};
+
+ResponseView.prototype.createDisplay = function (data) {
+  this.clear();
+  this.createQuestion(data.word);
+  this.createAnswers(data);
+  this.createHint();
 };
 
 
