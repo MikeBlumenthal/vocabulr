@@ -32,7 +32,7 @@ Question.prototype.bindEvents = function () {
     };
     PubSub.publish('Question:first-question-ready', payload);
   })
-}
+};
 
 
 Question.prototype.getOneQuestion = function () {

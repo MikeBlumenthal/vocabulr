@@ -5,37 +5,28 @@ const AnswerView = function(element){
 
 
 AnswerView.prototype.render = function (answerObj) {
-  const answer = answerObj.answer;
-  const img = answerObj.image;
-  const id = answerObj.id;
-  const category = answerObj.category;
-  const word = answerObj.word;
 
-  const div = document.createElement('div');
-  div.classList.add('answer');
-  div.setAttribute('value', answer);
-  div.id = id;
-  div.value = answer;
-  div.category = category;
-  div.word = word;
+
+  const answerDiv = document.createElement('div');
+  answerDiv.classList.add('answer');
+  this.assignment(answerObj, answerDiv, this.element);
 
   const answerEl = document.createElement('h4');
-  answerEl.textContent = answer;
-  answerEl.id = id;
-  answerEl.value = answer;
-  answerEl.category = category;
-  answerEl.word = word;
-  div.appendChild(answerEl);
+  answerEl.textContent = answerObj.answer;
+  this.assignment(answerObj, answerEl, answerDiv);
 
   const imageEl = document.createElement('img');
-  imageEl.src = img;
-  imageEl.id = id;
-  imageEl.value = answer;
-  imageEl.category = category;
-  imageEl.word = word;
-  div.appendChild(imageEl);
+  imageEl.src = answerObj.image;
+  this.assignment(answerObj, imageEl, answerDiv);
 
-  this.element.appendChild(div);
+};
+
+AnswerView.prototype.assignment = function (object, element, container) {
+  element.category = object.category;
+  element.id = object.id;
+  element.value = object.answer;
+  element.word = object.word;
+  container.appendChild(element);
 };
 
 module.exports = AnswerView;
