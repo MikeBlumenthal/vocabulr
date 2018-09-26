@@ -2,7 +2,6 @@ const PubSub = require('../helpers/pub_sub.js');
 const Request = require('../helpers/request.js');
 const Chart = require('chart.js');
 
-
 const FinalView = function (headElement, bodyElement) {
   this.head = headElement;
   this.body = bodyElement;

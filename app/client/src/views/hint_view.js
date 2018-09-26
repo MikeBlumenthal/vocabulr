@@ -20,7 +20,7 @@ HintView.prototype.giveHint = function () {
   .then((response) => {
     const incorrectAnswer = response[0].answers.find( answer => answer.correct === false );
     const hideAnswer = document.querySelector(`.answer[value="${incorrectAnswer.answer}"]`);
-    hideAnswer.setAttribute('style', 'opacity:0;transition:opacity 0.5s linear;*');
+    hideAnswer.classList.add('hide');
   });
 };
 
