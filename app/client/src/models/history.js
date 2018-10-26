@@ -57,14 +57,14 @@ HistoryData.prototype.getDatasets = function () {
 };
 
 HistoryData.prototype.createPayload = function () {
+
   this.data.forEach( (data) => {
     if (data.scores.length > 5){
       const deleteCount = (data.scores.length - 5);
       data.scores.splice( 0, deleteCount);
     }
   })
-
-
+  
   const payload = {
     score: this.score,
     categories: this.categories,
