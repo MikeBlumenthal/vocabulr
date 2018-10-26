@@ -1,4 +1,4 @@
-use vocabulary;
+use vocabulr;
 db.dropDatabase();
 
 db.questions.insertMany([

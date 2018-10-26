@@ -10,7 +10,7 @@ server.use(express.static(publicPath));
 
 server.use(parser.json());
 
-MongoClient.connect('mongodb://localhost:27017')
+MongoClient.connect('mongodb://heroku_5bz6m1lh:ph50djposudd6ta3k5c2nt6rdg@ds137863.mlab.com:37863/heroku_5bz6m1lh')
   .then( (client) => {
     const db = client.db('vocabulary');
     const collection = db.collection('questions');
