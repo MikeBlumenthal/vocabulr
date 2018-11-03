@@ -10,19 +10,16 @@ server.use(express.static(publicPath));
 
 server.use(parser.json());
 
-MongoClient.connect('mongodb://localhost:27017/')
+MongoClient.connect('mongodb://localhost:27017')
   .then( (client) => {
-    const db = client.db('vocabulary');
+    const db = client.db('vocabulr');
     const collection = db.collection('questions');
-    const collection2 = db.collection('history');
     const qRouter = router(collection);
-    const hRouter = router(collection2);
     server.use('/api/questions', qRouter);
-    server.use('/api/history', hRouter);
   })
   .catch((error) => {
     console.error('Failed to connect');
-    console.error(error);
+    console.error(error)
   });
 
 server.listen(3000, () => {
